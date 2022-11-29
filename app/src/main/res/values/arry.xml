@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="p_area1">
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+    </string-array>
+
+    <string-array name="p_area2">
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+        <item>예시1</item>
+    </string-array>
+</resources>
