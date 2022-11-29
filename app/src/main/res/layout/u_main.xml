@@ -81,9 +81,11 @@
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:text="서비스 목록"
+            android:textSize="25dp"
+            android:background="@drawable/out_shadow"
             app:layout_constraintBottom_toTopOf="@+id/button3"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,9 +93,12 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:text="신청서비스 목록"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:text="신청서비스
+            목록"
+            android:textSize="25dp"
+            android:background="@drawable/out_shadow"
             app:layout_constraintBottom_toTopOf="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button1"
@@ -101,9 +106,11 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:text="채팅 목록"
+            android:textSize="25dp"
+            android:background="@drawable/out_shadow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button4"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +118,11 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:text="마이 페이지"
+            android:textSize="25dp"
+            android:background="@drawable/out_shadow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button3"
