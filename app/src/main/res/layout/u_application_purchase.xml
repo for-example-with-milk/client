@@ -7,18 +7,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/nav_bar">
 
 
         <Button
             android:id="@+id/commit_apply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_design"
             android:text="신청"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -27,7 +29,10 @@
             android:id="@+id/textView14"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="상세주소를 입력하세요"
+            android:textSize="18dp"
+            android:background="@drawable/edit_text"
             app:layout_constraintEnd_toStartOf="@+id/find_address"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/address" />
@@ -36,7 +41,10 @@
             android:id="@+id/find_address"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="10dp"
             android:text="주소찾기"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/address"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
@@ -45,7 +53,11 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
             android:text="주소"
+            android:textColor="#000000"
+            android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -53,6 +65,10 @@
             android:id="@+id/address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:textSize="18dp"
+            android:background="@drawable/edit_text"
             app:layout_constraintEnd_toStartOf="@id/find_address"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
@@ -61,7 +77,11 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
             android:text="결제주기"
+            android:textColor="#000000"
+            android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -69,6 +89,8 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +101,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="년" />
+                android:text="년"
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/year"
@@ -93,7 +116,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="월" />
+                android:text="월"
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/month"
@@ -105,9 +129,10 @@
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
 
-                android:text="주" />
+                android:text="주"
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/week"
@@ -122,6 +147,9 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +167,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="20dp"
-                    android:text="수량" />
+                    android:text="수량"
+                    android:textColor="#000000"
+                    android:textSize="18dp" />
 
                 <ImageView
                     android:layout_width="15dp"
@@ -151,7 +181,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="10" />
+                    android:text="10"
+                    android:textSize="18dp" />
 
                 <ImageView
                     android:layout_width="15dp"
@@ -173,22 +204,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
                     android:text="총금액"
-                    android:layout_marginEnd="20dp"/>
+                    android:textColor="#000000"
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="50,000" />
+                    android:text="50,000"
+                    android:textColor="#000000"
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="원" />
+                    android:text="원"
+                    android:textSize="18dp" />
             </LinearLayout>
 
         </LinearLayout>
