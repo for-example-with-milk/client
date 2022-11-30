@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="서비스 생성"
+            android:text="회원 가입"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -69,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="서비스 이름"
+                android:text="이름"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -96,9 +95,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/textView1"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintBottom_toTopOf="@id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -106,7 +104,117 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="카테고리"
+                android:text="ID"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:minWidth="200dp"
+                android:minHeight="40dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/textView2"
+            app:layout_constraintBottom_toTopOf="@id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="PW"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:minWidth="200dp"
+                android:minHeight="40dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/textView3"
+            app:layout_constraintBottom_toTopOf="@id/textView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="PW확인"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:minWidth="200dp"
+                android:minHeight="40dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/textView4"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="전화번호"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -122,7 +230,7 @@
                 android:layout_width="70dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:text="선택"
+                android:text="인증"
                 android:textSize="16dp"/>
 
             <EditText
@@ -135,14 +243,15 @@
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:id="@+id/textView3"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/textView2"
-            app:layout_constraintBottom_toTopOf="@id/textView4"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/textView5"
+            app:layout_constraintBottom_toTopOf="@id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -150,7 +259,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="아이콘"
+                android:text="주소"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -161,104 +270,21 @@
                 android:text="*"
                 android:textColor="@color/red"
                 android:textSize="20dp" />
+
 
             <Button
                 android:layout_width="70dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:text="첨부"
+                android:text="찾기"
                 android:textSize="16dp"/>
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="파일이름.png 표시"
+                android:text="희망대로 520 우편번호"
                 android:textSize="15dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView3"
-            app:layout_constraintBottom_toTopOf="@id/textView5">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="서비스 대상 지역"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="*"
-                android:textColor="@color/red"
-                android:textSize="20dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView4"
-            app:layout_constraintBottom_toTopOf="@id/textView6">
-
-            <Spinner
-                android:layout_marginStart="50dp"
-                android:layout_width="150dp"
-                android:layout_height="40dp"/>
-
-            <Spinner
-                android:layout_marginStart="20dp"
-                android:layout_width="150dp"
-                android:layout_height="40dp"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView5"
-            app:layout_constraintBottom_toTopOf="@id/textView7">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="계좌정보 등록"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="*"
-            android:textColor="@color/red"
-            android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -267,52 +293,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/textView6"
-            app:layout_constraintBottom_toTopOf="@id/textView8"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:text="은행선택"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
-                android:text="선택"
-                android:textSize="16dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="은행이름 표시"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/textView7"
-            app:layout_constraintBottom_toTopOf="@id/textView9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:text="계좌번호"
+                android:layout_marginStart="20dp"
+                android:text="상세주소"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -327,51 +317,13 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView8"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="서비스 설명"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="*"
-                android:textColor="@color/red"
-                android:textSize="20dp" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:minWidth="215dp"
-                android:minHeight="200dp"
-                android:background="@drawable/edittext_rounded_corner_rectangle"/>
-
-
-        </LinearLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="서비스 생성"
+        android:text="회원가입"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
