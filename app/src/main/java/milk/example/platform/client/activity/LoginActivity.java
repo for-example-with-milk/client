@@ -9,6 +9,7 @@ import android.widget.EditText;
 import milk.example.platform.client.R;
 import milk.example.platform.client.conductor.AccountConductor;
 
+//로그인
 public class LoginActivity extends AppCompatActivity {
     private AccountConductor conductor;
     private Button login;
@@ -26,6 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         conductor = new AccountConductor(getApplicationContext(), this);
 
         login = findViewById(R.id.login_btn);
-        login.setOnClickListener(view -> conductor.login("03st", "abcdef"));
+        login.setOnClickListener(view -> conductor.login(id.getText().toString(), pw.getText().toString()));
     }
 }
