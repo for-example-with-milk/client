@@ -10,18 +10,18 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public final class Client {
-    public static RetrofitAPI retrofitService;
-    public static final Client INSTANCE;
+public final class RestController {
+    public static IRestController retrofitService;
+    public static final RestController INSTANCE;
 
     static {
         Gson gson = new GsonBuilder().setLenient().create();
 
-        INSTANCE = new Client();
+        INSTANCE = new RestController();
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient logger = new OkHttpClient.Builder().addInterceptor(interceptor).readTimeout(20L, TimeUnit.SECONDS).writeTimeout(20L, TimeUnit.SECONDS).build();
         Retrofit retrofit = new retrofit2.Retrofit.Builder().baseUrl("http://34.64.220.6:8080/").addConverterFactory(GsonConverterFactory.create(gson)).client(logger).build();
-        retrofitService = retrofit.create(RetrofitAPI.class);
+        retrofitService = retrofit.create(IRestController.class);
     }
 }
