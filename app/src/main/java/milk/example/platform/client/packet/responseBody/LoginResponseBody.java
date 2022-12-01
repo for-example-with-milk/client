@@ -15,6 +15,7 @@ public class LoginResponseBody {
         return user;
     }
 
+    //몰라뽀비
     public int getResult() { return result;}
 
     public String getMessage() { return message;}

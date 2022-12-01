@@ -39,14 +39,15 @@ public class AccountConductor extends Conductor {
                     LoginAccount.getInstance().setInfos(id, name, isUser);
 
                     if (isUser) {
+                        //이용자 메인
                         Conductor.save(new EmptyConductor(context));
                         Intent intent = new Intent(activity, UserMainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //몰라뽀비
                         context.startActivity(intent);
                         activity.finish();
                     }
                     else {
-                        // 제공자 화면 전환
+                        // 제공자 메인
                     }
                 }
             }
