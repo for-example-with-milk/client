@@ -14,5 +14,4 @@ public class LoginResponseBody {
     public boolean getUser() {
         return user;
     }
-
 }

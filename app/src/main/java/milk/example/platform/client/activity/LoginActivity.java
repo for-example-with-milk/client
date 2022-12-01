@@ -13,18 +13,19 @@ public class LoginActivity extends AppCompatActivity {
     private AccountConductor conductor;
     private Button login;
     private EditText id;
-    private String pw;
+    private EditText pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        id = (EditText)findViewById(R.id.id);
+        id = findViewById(R.id.id);
+        pw = findViewById(R.id.pw);
 
         conductor = new AccountConductor(getApplicationContext(), this);
 
         login = findViewById(R.id.login_btn);
-        login.setOnClickListener(view -> conductor.login("id0", "456"));
+        login.setOnClickListener(view -> conductor.login(id.getText().toString(), pw.getText().toString()));
     }
 }
