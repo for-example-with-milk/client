@@ -14,7 +14,6 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
     private ImageView back;
     private ImageView home;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
