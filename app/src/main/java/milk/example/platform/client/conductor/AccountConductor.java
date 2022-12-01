@@ -1,9 +1,13 @@
 package milk.example.platform.client.conductor;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import milk.example.platform.client.LoginAccount;
+import milk.example.platform.client.activity.UserMainActivity;
 import milk.example.platform.client.packet.requestBody.LoginRequestBody;
 import milk.example.platform.client.packet.responseBody.LoginResponseBody;
 import retrofit2.Call;
@@ -11,8 +15,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AccountConductor extends Conductor {
-    public AccountConductor(Activity activity) {
-        super(activity);
+    private Activity activity;
+
+    public AccountConductor(Context context, Activity activity) {
+        super(context);
+        this.activity = activity;
     }
 
     public void login(String id, String pw) {
@@ -22,14 +29,31 @@ public class AccountConductor extends Conductor {
                 int result = response.body().getResult();
                 String message = response.body().getMessage();
                 String id = response.body().getId();
+                String name = response.body().getName();
+                boolean isUser = response.body().getUser();
 
-                if (result != 0)
-                    Toast.makeText(activity.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                if (result != 0) {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    LoginAccount.getInstance().setInfos(id, name, isUser);
+
+                    if (isUser) {
+                        Conductor.save(new EmptyConductor(context));
+                        Intent intent = new Intent(activity, UserMainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        activity.finish();
+                    }
+                    else {
+                        // 제공자 화면 전환
+                    }
+                }
             }
 
             @Override
             public void onFailure(Call<LoginResponseBody> call, Throwable t) {
-                Log.i("hello", t.getMessage());
+                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

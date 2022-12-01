@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="milk.example.platform.client">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Client"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.UserMainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true">

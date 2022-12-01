@@ -7,14 +7,9 @@ import android.widget.Button;
 
 import milk.example.platform.client.R;
 import milk.example.platform.client.conductor.AccountConductor;
-import milk.example.platform.client.packet.requestBody.LoginRequestBody;
-import milk.example.platform.client.packet.responseBody.LoginResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    private AccountConductor conductor = new AccountConductor(this);
+    private AccountConductor conductor;
 
     private Button login;
 
@@ -23,7 +18,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        conductor = new AccountConductor(getApplicationContext(), this);
+
         login = findViewById(R.id.login_btn);
-        login.setOnClickListener(view -> conductor.login("id", "id"));
+        login.setOnClickListener(view -> conductor.login("id0", "456"));
     }
 }
