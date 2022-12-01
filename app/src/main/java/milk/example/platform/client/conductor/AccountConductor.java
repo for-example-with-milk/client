@@ -34,14 +34,12 @@ public class AccountConductor extends Conductor {
                 boolean isUser = response.body().getUser();
 
                 if (result != 0) {
-                    //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context,"로그인 실패",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
 
                 }
                 else {
                     LoginAccount.getInstance().setInfos(id, name, isUser);
-                    //Toast.makeText(context,String.valueOf(isUser),Toast.LENGTH_SHORT).show();
 
                     if (isUser) {
                         Conductor.save(new EmptyConductor(context));
