@@ -14,4 +14,5 @@ public class ProviderMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p_main);
     }
+
 }

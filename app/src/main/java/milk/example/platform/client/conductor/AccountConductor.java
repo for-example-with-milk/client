@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import milk.example.platform.client.LoginAccount;
+import milk.example.platform.client.activity.ProviderMainActivity;
 import milk.example.platform.client.activity.UserMainActivity;
 import milk.example.platform.client.packet.requestBody.LoginRequestBody;
 import milk.example.platform.client.packet.responseBody.LoginResponseBody;
@@ -47,7 +48,13 @@ public class AccountConductor extends Conductor {
                         activity.finish();
                     }
                     else {
-                        // 제공자 메인
+                        // 제공자 화면 전환
+                        Conductor.save(new EmptyConductor(context));
+                        Intent intent = new Intent(activity, ProviderMainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        activity.finish();
+
                     }
                 }
             }
