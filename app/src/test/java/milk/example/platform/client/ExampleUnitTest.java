@@ -1,4 +1,4 @@
-package milk.example.platform;
+package milk.example.platform.client;
 
 import org.junit.Test;
 

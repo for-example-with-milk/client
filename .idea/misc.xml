@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/activity_main.xml" value="0.26222826086956524" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/lll.xml" value="0.16041666666666668" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/login.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/p_creat_service_request_form.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/p_sign_up.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/sign_up.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_application_purchase.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_application_service.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_applycation_form_item.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_chat_item.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_chat_list.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_main.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_mypage.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_sign_up.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_subservice_item.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/DELL/Desktop/client/app/src/main/res/layout/u_subservice_list.xml" value="0.2653985507246377" />
-      </map>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
