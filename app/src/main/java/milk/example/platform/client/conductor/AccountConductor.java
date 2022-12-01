@@ -35,16 +35,16 @@ public class AccountConductor extends Conductor {
 
                 if (result != 0) {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-
-
                 }
                 else {
                     LoginAccount.getInstance().setInfos(id, name, isUser);
+                    //Toast.makeText(context,String.valueOf(isUser),Toast.LENGTH_SHORT).show();
 
                     if (isUser) {
+                        //이용자 메인
                         Conductor.save(new EmptyConductor(context));
                         Intent intent = new Intent(activity, UserMainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //몰라뽀비
                         context.startActivity(intent);
                         activity.finish();
                     }
