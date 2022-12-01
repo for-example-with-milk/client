@@ -38,6 +38,7 @@ public class AccountConductor extends Conductor {
                 }
                 else {
                     LoginAccount.getInstance().setInfos(id, name, isUser);
+                    //Toast.makeText(context,String.valueOf(isUser),Toast.LENGTH_SHORT).show();
 
                     if (isUser) {
                         //이용자 메인
