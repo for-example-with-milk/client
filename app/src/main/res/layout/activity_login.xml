@@ -131,7 +131,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:text="로그인"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:id="@+id/login_btn"/>
 
 
                 </LinearLayout>
