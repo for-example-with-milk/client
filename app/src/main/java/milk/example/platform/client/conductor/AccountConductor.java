@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import milk.example.platform.client.LoginAccount;
+import milk.example.platform.client.activity.ProviderMainActivity;
 import milk.example.platform.client.activity.UserMainActivity;
 import milk.example.platform.client.packet.requestBody.LoginRequestBody;
 import milk.example.platform.client.packet.responseBody.LoginResponseBody;
@@ -33,10 +34,14 @@ public class AccountConductor extends Conductor {
                 boolean isUser = response.body().getUser();
 
                 if (result != 0) {
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"로그인 실패",Toast.LENGTH_SHORT).show();
+
+
                 }
                 else {
                     LoginAccount.getInstance().setInfos(id, name, isUser);
+                    //Toast.makeText(context,String.valueOf(isUser),Toast.LENGTH_SHORT).show();
 
                     if (isUser) {
                         Conductor.save(new EmptyConductor(context));
@@ -47,6 +52,12 @@ public class AccountConductor extends Conductor {
                     }
                     else {
                         // 제공자 화면 전환
+                        Conductor.save(new EmptyConductor(context));
+                        Intent intent = new Intent(activity, ProviderMainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        activity.finish();
+
                     }
                 }
             }
