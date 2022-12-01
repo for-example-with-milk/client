@@ -2,7 +2,10 @@ package milk.example.platform.client.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import milk.example.platform.client.R;
@@ -11,12 +14,25 @@ import milk.example.platform.client.conductor.EmptyConductor;
 
 public class UserMainActivity extends AppCompatActivity {
     private EmptyConductor conductor;
+    private Button ViewServiceList;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.u_main);
+
+        ViewServiceList = findViewById(R.id.button1);
+        ViewServiceList.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent serviceIntent = new Intent(UserMainActivity.this,U_View_ServiceListActivity.class);
+                startActivity(serviceIntent);
+                //finish();
+            }
+        });
 
 
         conductor = (EmptyConductor) Conductor.load();

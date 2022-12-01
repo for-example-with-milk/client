@@ -26,6 +26,6 @@ public class LoginActivity extends AppCompatActivity {
         conductor = new AccountConductor(getApplicationContext(), this);
 
         login = findViewById(R.id.login_btn);
-        login.setOnClickListener(view -> conductor.login("03st", "abcdef"));
+        login.setOnClickListener(view -> conductor.login(id.getText().toString(), pw.getText().toString()));
     }
 }
