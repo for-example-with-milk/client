@@ -13,7 +13,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.p_creat_new_service);
+        setContentView(R.layout.p_create_new_service);
     }
 
 }
