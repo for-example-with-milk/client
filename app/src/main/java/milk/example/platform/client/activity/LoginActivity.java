@@ -9,6 +9,7 @@ import android.widget.EditText;
 import milk.example.platform.client.R;
 import milk.example.platform.client.conductor.AccountConductor;
 
+//로그인
 public class LoginActivity extends AppCompatActivity {
     private AccountConductor conductor;
     private Button login;
