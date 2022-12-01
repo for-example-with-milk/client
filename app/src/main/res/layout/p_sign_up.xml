@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="회원 가입"
+            android:text="제공자 회원가입"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
