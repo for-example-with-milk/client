@@ -2,6 +2,7 @@ package milk.example.platform.client.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,9 +10,12 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 import milk.example.platform.client.R;
 import milk.example.platform.client.conductor.AccountConductor;
 import milk.example.platform.client.conductor.ServiceListConductor;
+import milk.example.platform.client.service.subservice.Subservice;
 
 public class U_View_ServiceListActivity extends AppCompatActivity {
     private ServiceListConductor conductor;
@@ -23,7 +27,6 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.u_view_service_list);
-
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);
@@ -46,12 +49,11 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
             }
         });
 
-
-
         conductor = new ServiceListConductor(getApplicationContext(), this);
-        //conductor.serviceList("daegu-01",null);
-
-
-
+        conductor.serviceList("daegu-01", null, subServiceList -> {
+            for (Subservice subservice : subServiceList) {
+                Log.i("milk", subservice.toString());
+            }
+        });
     }
 }
