@@ -2,12 +2,13 @@ package milk.example.platform.client.packet.responseBody;
 
 import java.util.ArrayList;
 
-import lombok.*;
+
 import milk.example.platform.client.service.subservice.Subservice;
+import lombok.*;
 
 @Getter
 @Setter
-public class ServiceListResponseBody {
+public class ServiceListResponseBody { //리스트 형태로 바꿔야함
     private Long id;
     private String name;
     private String icoUrl;

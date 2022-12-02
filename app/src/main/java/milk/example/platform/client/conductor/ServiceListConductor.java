@@ -36,6 +36,8 @@ public class ServiceListConductor extends Conductor {
                 String account= response.body().getAccount();
                 ArrayList<Subservice> subServiceList= response.body().getSubServiceList();
                 String message = response.body().getMessage();
+                
+                //실행할 내용
             }
 
             @Override
