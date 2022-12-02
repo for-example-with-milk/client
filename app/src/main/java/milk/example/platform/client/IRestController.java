@@ -1,9 +1,7 @@
 package milk.example.platform.client;
 
-import milk.example.platform.client.packet.requestBody.LoginRequestBody;
-import milk.example.platform.client.packet.requestBody.SignUpUserRequestBody;
-import milk.example.platform.client.packet.responseBody.LoginResponseBody;
-import milk.example.platform.client.packet.responseBody.SignUpResponseBody;
+import milk.example.platform.client.packet.requestBody.*;
+import milk.example.platform.client.packet.responseBody.*;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -14,4 +12,11 @@ public interface IRestController {
 
     @POST("/user/login")
     Call<LoginResponseBody> login(@Body LoginRequestBody request);
+
+    @POST("/ser")
+    Call<ServiceListResponseBody> serviceList(@Body ServiceListRequestBody request);
+
+    @POST("/ser/detail")
+    Call<ServiceDetailResponseBody> serviceDetail(@Body ServiceDetailRequestBody request);
+
 }

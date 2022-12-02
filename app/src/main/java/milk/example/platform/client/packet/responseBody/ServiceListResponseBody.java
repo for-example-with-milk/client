@@ -1,13 +1,13 @@
-package milk.example.platform.client.service;
+package milk.example.platform.client.packet.responseBody;
 
 import java.util.ArrayList;
+
+import lombok.*;
 import milk.example.platform.client.service.subservice.Subservice;
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
-public class Service {
+public class ServiceListResponseBody {
     private Long id;
     private String name;
     private String icoUrl;
@@ -16,5 +16,5 @@ public class Service {
     private String categoryList;
     private String account;
     private ArrayList<Subservice> subServiceList;
-
+    private String message;
 }
