@@ -7,6 +7,7 @@ import milk.example.platform.client.service.subservice.Subservice;
 @Getter
 @Setter
 public class ServiceDetailResponseBody {
+    private int result;
     private Long id;
     private String name;
     private String icoUrl;

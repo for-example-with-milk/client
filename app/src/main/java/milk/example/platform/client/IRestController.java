@@ -13,7 +13,7 @@ public interface IRestController {
     @POST("/user/login")
     Call<LoginResponseBody> login(@Body LoginRequestBody request);
 
-    @POST("/ser")
+    @POST("/serv/getlist")
     Call<ServiceListResponseBody> serviceList(@Body ServiceListRequestBody request);
 
     @POST("/ser/detail")

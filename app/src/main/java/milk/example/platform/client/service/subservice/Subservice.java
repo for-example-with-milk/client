@@ -10,8 +10,10 @@ import lombok.Setter;
 public class Subservice {
     private Long id;
     private Service service;
-    private char name;
-    private char lore;
-    private short regular_payment_state;
+    private String name;
+    private String lore;
+    private short isRegularPayment;
+    //private Form form;
+
 
 }

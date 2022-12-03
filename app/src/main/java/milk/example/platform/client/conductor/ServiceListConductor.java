@@ -4,18 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import milk.example.platform.client.packet.requestBody.ServiceListRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceListResponseBody;
-import milk.example.platform.client.service.subservice.Subservice;
+import milk.example.platform.client.service.Service;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ServiceListConductor extends Conductor {
     public interface Callback {
-        void execute(ArrayList<Subservice> subServiceList);
+        void execute(List<Service> serviceList);
     }
 
     private Activity activity;
@@ -25,22 +24,27 @@ public class ServiceListConductor extends Conductor {
         this.activity = activity;
     }
 
-    public void serviceList(String city, String sort, Callback callback){
-        retrofit.serviceList(new ServiceListRequestBody(city,sort)).enqueue(new retrofit2.Callback<>(){
-
+    public void serviceList(String tag, String city, Callback callback){
+        retrofit.serviceList(new ServiceListRequestBody(tag,city)).enqueue(new retrofit2.Callback<>(){
             @Override
             public void onResponse(Call<ServiceListResponseBody> call, Response<ServiceListResponseBody> response) {
-                Long id = response.body().getId();
-                String name = response.body().getName();
-                String icoUrl = response.body().getIcoUrl();
-                String lore = response.body().getLore();
-                String city = response.body().getCity();
-                String categoryList = response.body().getCategoryList();
-                String account = response.body().getAccount();
-                ArrayList<Subservice> subServiceList = response.body().getSubServiceList();
+
+                int result = response.body().getResult();
+                List<Service> serviceList = response.body().getServiceList();
                 String message = response.body().getMessage();
 
-                callback.execute(subServiceList);
+
+
+
+                if (result == 0){//이거 반대로 바꾸기
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    callback.execute(serviceList);
+
+                }
             }
 
             @Override
