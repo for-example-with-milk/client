@@ -1,5 +1,7 @@
 package milk.example.platform.client.service.subservice;
 
+import java.util.List;
+
 public class FormElement {
     private Long id;
     private ElementType elementType;
@@ -7,9 +9,9 @@ public class FormElement {
     private String prodName;
     private String prodDescription;
     private String infoText;
-    //private InputType inputType;
+    private InputType inputType;
     private short isRequireResponse;
     private short isMultipleChoice;
-    //private List<Checkbox> checkboxList;
+    private List<Checkbox> checkboxList;
 
 }

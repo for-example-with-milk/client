@@ -13,7 +13,7 @@ public class Subservice {
     private String name;
     private String lore;
     private short isRegularPayment;
-    //private Form form;
+    private Form form;
 
 
 }

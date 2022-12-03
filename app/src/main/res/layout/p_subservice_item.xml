@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/period_info" />
 
     <TextView
-        android:id="@+id/type"
+        android:id="@+id/serv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -40,7 +40,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
+        app:layout_constraintTop_toBottomOf="@+id/serv_type" />
 
     <LinearLayout
         android:id="@+id/price_info"
