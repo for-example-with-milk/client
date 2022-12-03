@@ -5,10 +5,10 @@ import lombok.*;
 @Setter
 public class ServiceListRequestBody {
     private String city;
-    private String sort;
+    private String tag;
 
-    public ServiceListRequestBody(String city,String sort){
+    public ServiceListRequestBody(String tag,String city){
         this.city = city;
-        this.sort = sort;
+        this.tag = tag;
     }
 }

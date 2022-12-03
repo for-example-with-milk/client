@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 import milk.example.platform.client.R;
+import milk.example.platform.client.ServiceListAdapter;
 import milk.example.platform.client.conductor.AccountConductor;
 import milk.example.platform.client.conductor.ServiceListConductor;
+import milk.example.platform.client.service.Service;
 import milk.example.platform.client.service.subservice.Subservice;
 
 public class U_View_ServiceListActivity extends AppCompatActivity {
@@ -23,10 +26,14 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
     private ImageView home;
     private Spinner sort;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.u_view_service_list);
+
+        ListView listview = (ListView)findViewById(R.id.service_list);
+
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);
@@ -50,10 +57,13 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
         });
 
         conductor = new ServiceListConductor(getApplicationContext(), this);
-        conductor.serviceList("daegu-01", null, subServiceList -> {
-            for (Subservice subservice : subServiceList) {
-                Log.i("milk", subservice.toString());
+
+        conductor.serviceList("운동/음식", "대구 달서구", serviceList -> {
+            for (Service service : serviceList) {
+                Log.i("밀크", service.toString());
             }
+            ServiceListAdapter adapter = new ServiceListAdapter(getApplicationContext(),serviceList);
+            listview.setAdapter(adapter);
         });
     }
 }
