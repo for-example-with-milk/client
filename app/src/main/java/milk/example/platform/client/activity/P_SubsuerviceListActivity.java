@@ -32,7 +32,7 @@ public class P_SubsuerviceListActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent serviceIntent = new Intent(P_SubsuerviceListActivity.this, UserMainActivity.class);
+                Intent serviceIntent = new Intent(P_SubsuerviceListActivity.this, ProviderMainActivity.class);
                 serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(serviceIntent);

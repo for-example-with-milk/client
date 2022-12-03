@@ -33,7 +33,7 @@ public class P_ServiceListActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent serviceIntent = new Intent(P_ServiceListActivity.this, UserMainActivity.class);
+                Intent serviceIntent = new Intent(P_ServiceListActivity.this, ProviderMainActivity.class);
                 serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(serviceIntent);
