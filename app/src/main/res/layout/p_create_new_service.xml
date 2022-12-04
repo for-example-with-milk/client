@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/nav"
             android:layout_width="match_parent"
@@ -61,7 +60,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:weightSum="9"
+            android:weightSum="10"
             app:layout_constraintTop_toBottomOf="@id/nav">
 
             <LinearLayout
@@ -92,7 +91,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/serve_name"
+                    android:id="@+id/new_serv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -131,19 +130,23 @@
                     android:textSize="20dp" />
 
                 <Button
+                    android:id="@+id/new_serv_cat"
                     android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:text="선택"
                     android:textSize="16dp" />
 
-                <EditText
+
+                <TextView
+                    android:id="@+id/new_serv_catresult"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/edittext_rounded_corner_rectangle"
                     android:minWidth="154dp"
-                    android:minHeight="40dp" />
+                    android:minHeight="40dp"
+                    android:textAppearance="?android:attr/textAppearance"/>
 
             </LinearLayout>
 
@@ -180,7 +183,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="파일이름.png 표시"
+                    android:text=" 파일이름.png 표시 "
                     android:textSize="15dp" />
 
 
@@ -321,24 +324,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
-                    android:text="은행선택"
+                    android:text="은행입력"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
-
-                <Button
-                    android:layout_width="70dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:text="선택"
-                    android:textSize="16dp" />
-
-                <TextView
+                <EditText
+                    android:id="@+id/new_serv_bank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="은행이름 표시"
-                    android:textSize="15dp" />
+                    android:background="@drawable/edittext_rounded_corner_rectangle"
+                    android:hint=" 은행 이름 입력 "
+                    android:minWidth="234dp"
+                    android:minHeight="40dp" />
 
             </LinearLayout>
 
@@ -363,11 +361,12 @@
 
 
                 <EditText
+                    android:id="@+id/new_serv_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/edittext_rounded_corner_rectangle"
-                    android:hint=" 정산용 계좌 "
+                    android:hint=" 정산용 계좌 입력 "
                     android:minWidth="234dp"
                     android:minHeight="40dp" />
 
@@ -402,7 +401,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/serv_lore"
+                    android:id="@+id/new_serv_lore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -414,7 +413,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/create_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
