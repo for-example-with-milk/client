@@ -41,5 +41,11 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+
+
+
     }
 }
