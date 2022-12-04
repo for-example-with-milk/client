@@ -1,6 +1,7 @@
 package milk.example.platform.client.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import milk.example.platform.client.LoginAccount;
 import milk.example.platform.client.service.subservice.Subservice;
@@ -28,6 +29,6 @@ public class Service {
     private String city;
     private String categoryList;
     private String account;
-    private ArrayList<Subservice> subServiceList;
+    private List<Subservice> subServiceList;
 
 }

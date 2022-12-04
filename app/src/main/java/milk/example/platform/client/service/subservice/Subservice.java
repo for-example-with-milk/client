@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Subservice {
-    private int type;
+
 
     private Long id;
     private String name;
