@@ -9,7 +9,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import milk.example.platform.client.R;
-import milk.example.platform.client.SubServiceListAdapter;
+import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.conductor.SubServiceListConductor;
 import milk.example.platform.client.conductor.ServiceDetailConductor;
 
@@ -57,15 +57,11 @@ public class U_SubserviceListActivity extends AppCompatActivity {
 
 
         conductor = new SubServiceListConductor(getApplicationContext(), this);
-        conductor.subserviceList(given_id, subserviceList->{
-            SubServiceListAdapter adapter = new SubServiceListAdapter(getApplicationContext(),subserviceList);
-            listview.setAdapter(adapter);
+        conductor.totalserviceList(given_id);
 
 
-
-
-        });
-
+        TotalServiceListAdapter adapter = new TotalServiceListAdapter();
+        listview.setAdapter(adapter);
 
     }
 }

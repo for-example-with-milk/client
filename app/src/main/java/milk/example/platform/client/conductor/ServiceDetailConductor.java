@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import milk.example.platform.client.SubServiceListAdapter;
+import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
 import milk.example.platform.client.service.Service;
-import milk.example.platform.client.service.subservice.Subservice;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,7 +42,7 @@ public class ServiceDetailConductor extends Conductor{
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    SubServiceListAdapter adapter = new SubServiceListAdapter();
+                    TotalServiceListAdapter adapter = new TotalServiceListAdapter();
                     adapter.addItem(icoUrl,categoryList,name,lore,city,account);
 
                 }

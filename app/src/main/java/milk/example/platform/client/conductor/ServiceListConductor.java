@@ -25,8 +25,8 @@ public class ServiceListConductor extends Conductor {
         this.activity = activity;
     }
 
-    public void serviceList(String tag, String city, Callback callback){
-        retrofit.serviceList(new ServiceListRequestBody(tag,city)).enqueue(new retrofit2.Callback<>(){
+    public void serviceList(String tag, Callback callback){
+        retrofit.serviceList(new ServiceListRequestBody(tag)).enqueue(new retrofit2.Callback<>(){
             @Override
             public void onResponse(Call<ServiceListResponseBody> call, Response<ServiceListResponseBody> response) {
 

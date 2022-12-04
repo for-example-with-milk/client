@@ -9,6 +9,8 @@ import milk.example.platform.client.service.subservice.Subservice;
 @Getter
 @Setter
 public class SubServiceResponseBody {
+    private int op;
+
     private int result;
     private List<Subservice> subserviceList;
     private String message;

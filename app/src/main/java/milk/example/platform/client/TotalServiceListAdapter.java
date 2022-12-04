@@ -1,7 +1,6 @@
 package milk.example.platform.client;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,28 +8,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import milk.example.platform.client.service.subservice.Subservice;
 
-public class SubServiceListAdapter extends BaseAdapter {
+public class TotalServiceListAdapter extends BaseAdapter {
     private static final int SURVICE = 0;
     private static final int SUB = 1;
     private static final int OP_SIZE = 2;
 
-    List<Subservice> subserviceList;
+    List<TotalService> totalServiceList;
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
 
-    public SubServiceListAdapter() {
+    public TotalServiceListAdapter() {
 
     }
 
-    public SubServiceListAdapter(Context context, List<Subservice> data){
+    public TotalServiceListAdapter(Context context, List<TotalService> data){
         mContext = context;
-        subserviceList = data;
+        totalServiceList = data;
         mLayoutInflater = LayoutInflater.from(mContext);
     }
     @Override
@@ -39,17 +36,17 @@ public class SubServiceListAdapter extends BaseAdapter {
     }
     @Override
     public int getItemViewType(int i){
-        return subserviceList.get(i).getType();
+        return totalServiceList.get(i).getOp();
     }
 
     @Override
     public int getCount() {
-        return subserviceList.size();
+        return totalServiceList.size();
     }
 
     @Override
-    public Subservice getItem(int i) {
-        return subserviceList.get(i);
+    public TotalService getItem(int i) {
+        return totalServiceList.get(i);
     }
 
     @Override
@@ -64,7 +61,7 @@ public class SubServiceListAdapter extends BaseAdapter {
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            Subservice listviewItem = subserviceList.get(i);
+            TotalService listviewItem = totalServiceList.get(i);
             
             
             switch(viewType){
@@ -73,35 +70,35 @@ public class SubServiceListAdapter extends BaseAdapter {
                     //서비스 정보를 하위서비스 클래스에 대애애충 담아와서 보여주기만 할랬는데 어트리뷰트 모자람...
                     ImageView icon = (ImageView)view.findViewById(R.id.imageView3);
                     TextView tag = (TextView)view.findViewById(R.id.category);
-                    TextView s_name = (TextView)view.findViewById(R.id.service_name);
-                    TextView s_explain = (TextView)view.findViewById(R.id.service_explain);
+                    TextView name = (TextView)view.findViewById(R.id.service_name);
+                    TextView explain = (TextView)view.findViewById(R.id.service_explain);
                     TextView area = (TextView)view.findViewById(R.id.service_area);
-                    TextView acount = (TextView)view.findViewById(R.id.service_account);
+                    TextView account = (TextView)view.findViewById(R.id.service_account);
 
 
-                    tag.setText(listviewItem.getForm().getIsPurchase());
-                    s_name.setText(listviewItem.getName());
-                    area.setText(listviewItem.getForm().getServicePrice());
-                    acount.setText(listviewItem.getIsRegularPayment());
-                    s_explain.setText(listviewItem.getLore());
-
+                    tag.setText(listviewItem.getCategoryList());
+                    name.setText(listviewItem.getName());
+                    explain.setText(listviewItem.getLore());
+                    area.setText(listviewItem.getCity());
+                    account.setText(listviewItem.getAccount());
                     break;
 
 
                 case SUB:
                     view = inflater.inflate(R.layout.u_subservice_item,viewGroup,false);
 
-                    TextView name = (TextView)view.findViewById(R.id.name);
+                    TextView s_name = (TextView)view.findViewById(R.id.name);
                     TextView price = (TextView)view.findViewById(R.id.price);
                     TextView pay_period = (TextView)view.findViewById(R.id.pay_period);
-                    TextView explain = (TextView)view.findViewById(R.id.explain);
+                    TextView s_explain = (TextView)view.findViewById(R.id.explain);
                     TextView type = (TextView)view.findViewById(R.id.serv_type);
 
-                    type.setText(listviewItem.getForm().getIsPurchase());
-                    name.setText(listviewItem.getName());
+
+                    s_name.setText(listviewItem.getS_name());
                     price.setText(listviewItem.getForm().getServicePrice());
                     pay_period.setText(listviewItem.getIsRegularPayment());
-                    explain.setText(listviewItem.getLore());
+                    s_explain.setText(listviewItem.getS_lore());
+                    type.setText(listviewItem.getForm().getIsPurchase());
                     
                     break;
 
@@ -113,14 +110,25 @@ public class SubServiceListAdapter extends BaseAdapter {
 
     //서비스 상세
     public void addItem(String icon,String tag, String name, String explain,String area,String account){
-        Subservice item = new Subservice();
-        item.setType(SURVICE);
+        TotalService item = new TotalService();
+        item.setOp(SURVICE);
+        item.setCategoryList(tag);
+        item.setName(name);
+        item.setLore(explain);
+        item.setCity(area);
+        item.setAccount(account);
 
-
-        subserviceList.add(item);
+        totalServiceList.add(item);
     }
-    public void addItem(String type, String name,String price, String pay_period,String explain){
-        Subservice item = new Subservice();
+    public void addItem(short type, String name,int price, short pay_period,String explain){
+        TotalService item = new TotalService();
+        item.setOp(SUB);
+        item.getForm().setIsPurchase(type);
+        item.setS_name(name);
+        item.getForm().setServicePrice(price);
+        item.setIsRegularPayment(pay_period);
+        item.setS_lore(explain);
+
 
 
         //콜백함수가 해주니까 이부분은 통째로 삭제해도 댈듯//

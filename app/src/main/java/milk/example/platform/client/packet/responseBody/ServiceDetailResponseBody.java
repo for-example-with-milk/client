@@ -1,5 +1,6 @@
 package milk.example.platform.client.packet.responseBody;
 import java.util.ArrayList;
+import java.util.List;
 
 import lombok.*;
 import milk.example.platform.client.service.Service;
@@ -11,5 +12,5 @@ public class ServiceDetailResponseBody {
     private Service service;
     private int result;
     private String message;
-    private ArrayList<Subservice> subServiceList;
+    private List<Subservice> subServiceList;
 }
