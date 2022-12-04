@@ -45,6 +45,7 @@ public class SubserviceProductDataBuilder {
             private String prodName;
             private String prodDescription;
             private int prodPrice;
+            private String elementType = "PRODUCT";
 
             public FormElement(int idx, String prodName, String prodDescription, int prodPrice) {
                 this.idx = idx;
