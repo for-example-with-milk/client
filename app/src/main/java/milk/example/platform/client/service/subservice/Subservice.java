@@ -8,8 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Subservice {
+    private int type;
+
     private Long id;
-    private Service service;
     private String name;
     private String lore;
     private short isRegularPayment;

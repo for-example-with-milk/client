@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import milk.example.platform.client.R;
 import milk.example.platform.client.ServiceListAdapter;
 import milk.example.platform.client.conductor.AccountConductor;
+import milk.example.platform.client.conductor.Conductor;
+import milk.example.platform.client.conductor.EmptyConductor;
 import milk.example.platform.client.conductor.ServiceListConductor;
 import milk.example.platform.client.service.Service;
 import milk.example.platform.client.service.subservice.Subservice;
@@ -63,7 +66,20 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
                 Log.i("밀크", service.toString());
             }
             ServiceListAdapter adapter = new ServiceListAdapter(getApplicationContext(),serviceList);
+
             listview.setAdapter(adapter);
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(U_View_ServiceListActivity.this, U_SubserviceListActivity.class);
+                    Service id = serviceList.get(i);
+                    intent.putExtra("service_info",id.getId());
+                    startActivity(intent);
+                }
+            });
+
+
+
         });
     }
 }
