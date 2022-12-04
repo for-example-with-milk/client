@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application1</string>
+    <string-array name="city1">
+        <item>서울특별시</item>
+        <item>대구광역시</item>
+    </string-array>
+    <string-array name="city1_0">
+        <item>강남구</item>
+        <item>관악구</item>
+        <item>종로구</item>
+    </string-array>
+    <string-array name="city1_1">
+        <item>남구</item>
+        <item>북구</item>
+        <item>수성구</item>
+    </string-array>
+</resources>
