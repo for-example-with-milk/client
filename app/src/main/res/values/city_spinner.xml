@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application1</string>
     <string-array name="city1">
         <item>서울특별시</item>
         <item>대구광역시</item>

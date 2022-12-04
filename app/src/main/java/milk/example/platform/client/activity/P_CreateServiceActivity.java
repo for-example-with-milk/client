@@ -41,9 +41,9 @@ public class P_CreateServiceActivity extends AppCompatActivity {
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);
-        name = findViewById(R.id.new_serv_name);
-        lore = findViewById(R.id.new_serv_lore);
-        confirm = findViewById(R.id.create_service);
+//        name = findViewById(R.id.new_serv_name);
+//        lore = findViewById(R.id.new_serv_lore);
+//        confirm = findViewById(R.id.create_service);
 //        textView1 = findViewById(R.id.city1_txt);
 //        textView2 = findViewById(R.id.city2_txt);
 //        Spinner spinner1 = findViewById(R.id.city1);
@@ -67,7 +67,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             //conductor.setCity(city.getText().toString());
             //conductor.setCity(categoryList.getText().toString());
             //conductor.setCity(account.getText().toString());
-            conductor.summit();
+            //conductor.summit();
         });
 
         //spinner

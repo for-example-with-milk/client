@@ -6,9 +6,9 @@ import milk.example.platform.client.builder.ServiceDataBuilder;
 @Getter
 @Setter
 public class BServiceDataRequestBody {
-    private ServiceDataBuilder.ServiceData data;
+    private ServiceDataBuilder.Data data;
 
-    public BServiceDataRequestBody(ServiceDataBuilder.ServiceData data) {
+    public BServiceDataRequestBody(ServiceDataBuilder.Data data) {
         this.data = data;
     }
 }
