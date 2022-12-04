@@ -22,8 +22,10 @@ public interface IRestController {
     @POST("serv/get")
     Call<ServiceDetailResponseBody> serviceDetail(@Body ServiceDetailRequestBody request);
 
-    @POST("serv/user")
+    @POST("serv/getUserlist")
     Call<UserServiceListReponseBody> userServiceList (@Body UserServiceListRequestBody request);
+    @POST("serv/getUserlist")
+    Call<UserServiceListReponseBody> provserviceList (@Body UserServiceListRequestBody request);
 
     @POST("serv/create")
     Call<CreateServiceResponseBody> createService(@Body CreateServiceRequestBody request);
