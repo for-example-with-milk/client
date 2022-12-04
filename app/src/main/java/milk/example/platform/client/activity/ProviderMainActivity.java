@@ -22,17 +22,16 @@ public class ProviderMainActivity extends AppCompatActivity {
         ServiceList = findViewById(R.id.button5);
         Create = findViewById(R.id.button6);
 
-
-
-
-
         ServiceList.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_ServiceListActivity.class);
-                startActivity(serviceIntent);
+//                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_ServiceListActivity.class);
+//                startActivity(serviceIntent);
                 //finish();
+
+                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_SubServiceCreateProductActivity.class);
+                startActivity(serviceIntent);
             }
         });
 
