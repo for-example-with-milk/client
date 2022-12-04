@@ -1,8 +1,5 @@
 package milk.example.platform.client;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class LoginAccount {
     private String id;
     private String name;
@@ -22,5 +19,9 @@ public class LoginAccount {
         this.id = id;
         this.name = name;
         this.isUser = isUser;
+    }
+
+    public String getId() {
+        return id;
     }
 }

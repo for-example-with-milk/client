@@ -13,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class ServiceListConductor extends Conductor {
+
     public interface Callback {
         void execute(List<Service> serviceList);
     }
@@ -24,8 +25,8 @@ public class ServiceListConductor extends Conductor {
         this.activity = activity;
     }
 
-    public void serviceList(String tag, String city, Callback callback){
-        retrofit.serviceList(new ServiceListRequestBody(tag,city)).enqueue(new retrofit2.Callback<>(){
+    public void serviceList(String tag, Callback callback){
+        retrofit.serviceList(new ServiceListRequestBody(tag)).enqueue(new retrofit2.Callback<>(){
             @Override
             public void onResponse(Call<ServiceListResponseBody> call, Response<ServiceListResponseBody> response) {
 
@@ -36,7 +37,7 @@ public class ServiceListConductor extends Conductor {
 
 
 
-                if (result == 0){//이거 반대로 바꾸기
+                if (result != 0){//이거 반대로 바꾸기
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
 

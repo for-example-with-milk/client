@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
+import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
-import milk.example.platform.client.service.subservice.Subservice;
+import milk.example.platform.client.service.Service;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,21 +20,37 @@ public class ServiceDetailConductor extends Conductor{
         this.activity = activity;
     }
 
-
     public void serviceDetail(Long id){
-        retrofit.serviceDetail(new ServiceDetailRequestBody(id)).enqueue(new Callback<>(){
-
+        retrofit.serviceDetail(new ServiceDetailRequestBody(id)).enqueue(new Callback<ServiceDetailResponseBody>() {
             @Override
             public void onResponse(Call<ServiceDetailResponseBody> call, Response<ServiceDetailResponseBody> response) {
-                Long id = response.body().getId();
-                String name= response.body().getName();
-                String icoUrl= response.body().getIcoUrl();
-                String lore= response.body().getLore();
-                String city= response.body().getCity();
-                String categoryList= response.body().getCategoryList();
-                String account= response.body().getAccount();
-                ArrayList<Subservice> subServiceList= response.body().getSubServiceList();
+
+                int result = response.body().getResult();
+                Service service = response.body().getService();
                 String message = response.body().getMessage();
+
+                Long id = service.getId();
+                String name= service.getName();
+                String icoUrl= service.getIcoUrl();
+                String lore= service.getLore();
+                String city= service.getCity();
+                String categoryList= service.getCategoryList();
+                String account= service.getAccount();
+
+
+                if(result!=0){
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    TotalServiceListAdapter adapter = new TotalServiceListAdapter();
+                    adapter.addItem(icoUrl,categoryList,name,lore,city,account);
+
+                }
+
+
+
+
+
             }
 
             @Override
@@ -44,6 +59,7 @@ public class ServiceDetailConductor extends Conductor{
             }
         });
     }
+
 
 
 

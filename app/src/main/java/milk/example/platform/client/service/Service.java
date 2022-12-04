@@ -1,6 +1,9 @@
 package milk.example.platform.client.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import milk.example.platform.client.LoginAccount;
 import milk.example.platform.client.service.subservice.Subservice;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +11,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Service {
+    private static final Service INSTANCE;
+
+    static  {
+        INSTANCE = new Service();
+    }
+
+    public static Service getInstance() {
+        return INSTANCE;
+    }
+
+
     private Long id;
     private String name;
     private String icoUrl;
@@ -15,6 +29,6 @@ public class Service {
     private String city;
     private String categoryList;
     private String account;
-    private ArrayList<Subservice> subServiceList;
+    private List<Subservice> subServiceList;
 
 }

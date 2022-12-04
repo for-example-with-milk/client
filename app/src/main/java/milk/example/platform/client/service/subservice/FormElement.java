@@ -1,15 +1,21 @@
 package milk.example.platform.client.service.subservice;
 
+import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class FormElement {
     private Long id;
     private ElementType elementType;
-    private Form form;
     private String prodName;
     private String prodDescription;
     private String infoText;
-    //private InputType inputType;
+    private InputType inputType;
     private short isRequireResponse;
     private short isMultipleChoice;
-    //private List<Checkbox> checkboxList;
+    private List<Checkbox> checkboxList;
 
 }

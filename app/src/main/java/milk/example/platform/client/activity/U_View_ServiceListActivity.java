@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 import milk.example.platform.client.R;
 import milk.example.platform.client.ServiceListAdapter;
 import milk.example.platform.client.conductor.AccountConductor;
+import milk.example.platform.client.conductor.Conductor;
+import milk.example.platform.client.conductor.EmptyConductor;
 import milk.example.platform.client.conductor.ServiceListConductor;
 import milk.example.platform.client.service.Service;
 import milk.example.platform.client.service.subservice.Subservice;
@@ -24,7 +28,8 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
     private ServiceListConductor conductor;
     private ImageView back;
     private ImageView home;
-    private Spinner sort;
+    private Spinner category;
+    private String[] tagItem = {"건강","안전","수리","정비","동물","식물","모임","요리","의류","음악","운동","게임","책","여행","공부","식픔"};
 
 
     @Override
@@ -33,6 +38,12 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
         setContentView(R.layout.u_view_service_list);
 
         ListView listview = (ListView)findViewById(R.id.service_list);
+
+        category = (Spinner)findViewById(R.id.spinner2);
+
+
+
+
 
 
         back = findViewById(R.id.back);
@@ -58,12 +69,46 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
 
         conductor = new ServiceListConductor(getApplicationContext(), this);
 
-        conductor.serviceList("운동/음식", "대구 달서구", serviceList -> {
-            for (Service service : serviceList) {
-                Log.i("밀크", service.toString());
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item,tagItem
+        );
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        category.setAdapter(adapter);
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                conductor.serviceList(tagItem[i], serviceList -> {
+                    for (Service service : serviceList) {
+                        Log.i("밀크", service.toString());
+                    }
+                    ServiceListAdapter Sadapter = new ServiceListAdapter(getApplicationContext(),serviceList);
+
+                    listview.setAdapter(Sadapter);
+                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Intent intent = new Intent(U_View_ServiceListActivity.this, U_SubserviceListActivity.class);
+                            Service id = serviceList.get(i);
+                            intent.putExtra("service_info",id.getId());
+                            startActivity(intent);
+                        }
+                    });
+                });
+
+
+
+
             }
-            ServiceListAdapter adapter = new ServiceListAdapter(getApplicationContext(),serviceList);
-            listview.setAdapter(adapter);
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
         });
     }
 }
