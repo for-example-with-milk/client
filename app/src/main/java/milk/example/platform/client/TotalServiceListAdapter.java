@@ -5,11 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import milk.example.platform.client.activity.U_SubserviceListActivity;
 import milk.example.platform.client.service.subservice.Subservice;
 
 public class TotalServiceListAdapter extends BaseAdapter {
@@ -92,6 +95,14 @@ public class TotalServiceListAdapter extends BaseAdapter {
                     TextView pay_period = (TextView)view.findViewById(R.id.pay_period);
                     TextView s_explain = (TextView)view.findViewById(R.id.explain);
                     TextView type = (TextView)view.findViewById(R.id.serv_type);
+                    Button apply_btn = (Button)view.findViewById(R.id.button8);
+                    apply_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //Toast.makeText(mContext, "신청버튼 클릭",Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
 
 
                     s_name.setText(listviewItem.getS_name());
