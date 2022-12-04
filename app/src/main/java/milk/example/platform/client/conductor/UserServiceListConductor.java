@@ -2,6 +2,7 @@ package milk.example.platform.client.conductor;
 
 import android.app.Activity;
 import android.content.Context;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,17 +25,28 @@ public class UserServiceListConductor extends Conductor{
     }
 
 
-    public void userServiceList(Long userId,Long serviceId, Callback callback){
-        retrofit.userServiceList(new UserServiceListRequestBody(userId,serviceId)).enqueue(new retrofit2.Callback<>(){
+    public void userServiceList(String userId, Callback callback){
+        retrofit.userServiceList(new UserServiceListRequestBody(userId)).enqueue(new retrofit2.Callback<>(){
 
             @Override
             public void onResponse(Call<UserServiceListReponseBody> call, Response<UserServiceListReponseBody> response) {
+                int result = response.body().getResult();
+                List<Service> userserviceList = response.body().getServiceList();
+                String message = response.body().getMessage();
 
+
+                if(result!=0){
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    callback.execute(userserviceList);
+                }
             }
 
             @Override
             public void onFailure(Call<UserServiceListReponseBody> call, Throwable t) {
-
+                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

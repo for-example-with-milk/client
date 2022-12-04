@@ -6,12 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserServiceListRequestBody {
-    private Long userId;
-    private Long serviceId;
+    private String userId;
 
-    public UserServiceListRequestBody(Long userId,Long serviceId) {
+    public UserServiceListRequestBody(String userId) {
         this.userId = userId;
-        this.serviceId = serviceId;
     }
 
 }

@@ -1,6 +1,7 @@
 package milk.example.platform.client.activity;
 
 import static android.R.layout.simple_spinner_dropdown_item;
+import static android.R.layout.simple_spinner_item;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -117,6 +118,15 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             finish();
         });
 
+        //서비스 생성 버튼
+        confirm.setOnClickListener(view -> {
+            conductor.setName(name.getText().toString());
+            conductor.setLore(lore.getText().toString());
+            //conductor.setCity(city.getText().toString());
+            //conductor.setCity(categoryList.getText().toString());
+            //conductor.setCity(account.getText().toString());
+            conductor.summit();
+        });
 
         //spinner
         final Spinner spinner1 = (Spinner)findViewById(R.id.city1);
