@@ -6,10 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserServiceListRequestBody {
-    private String userId;
+    private String token;
 
-    public UserServiceListRequestBody(String userId) {
-        this.userId = userId;
+    public UserServiceListRequestBody(String token) {
+        this.token = token;
     }
 
 }

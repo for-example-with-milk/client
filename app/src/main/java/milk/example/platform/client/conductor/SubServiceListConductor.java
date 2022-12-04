@@ -11,6 +11,7 @@ import java.util.List;
 import milk.example.platform.client.TotalService;
 import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
+import milk.example.platform.client.packet.requestBody.ServiceListRequestBody;
 import milk.example.platform.client.packet.requestBody.SubServiceRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
 import milk.example.platform.client.packet.responseBody.SubServiceResponseBody;
@@ -24,16 +25,17 @@ public class SubServiceListConductor extends Conductor{
     private Activity activity;
     private SubServiceListConductor subServiceListConductor;
 
+
     public SubServiceListConductor(Context context, Activity activity) {
         super(context);
         this.activity = activity;
     }
+    public interface Callback {
+        void execute(List<Subservice> subserviceList);
+    }
 
-
-
-
-    public void totalserviceList(Long id){
-        retrofit.totalserviceList(new SubServiceRequestBody(id)).enqueue(new Callback<SubServiceResponseBody>(){
+    public void subserviceList(Long id, Callback callback){
+        retrofit.subserviceList(new SubServiceRequestBody(id)).enqueue(new retrofit2.Callback<>(){
 
             @Override
             public void onResponse(Call<SubServiceResponseBody> call, Response<SubServiceResponseBody> response) {
@@ -41,23 +43,13 @@ public class SubServiceListConductor extends Conductor{
                 String message = response.body().getMessage();
                 List<Subservice> subserviceList  = response.body().getSubserviceList();
 
-
-                if (result != 0){
+                if(result!=0){
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
-
                 else{
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                    TotalServiceListAdapter adapter = new TotalServiceListAdapter();
-                    for (Subservice sub : subserviceList) {
-                        adapter.addItem(sub.getForm().getIsPurchase(),sub.getName(),sub.getForm().getServicePrice(),sub.getIsRegularPayment(),sub.getLore());
-                    }
-
+                    callback.execute(subserviceList);
                 }
-
-
-
-
             }
 
             @Override
@@ -66,6 +58,8 @@ public class SubServiceListConductor extends Conductor{
             }
         });
     }
+
+
 
 
 

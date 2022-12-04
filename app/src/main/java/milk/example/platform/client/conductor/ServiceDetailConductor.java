@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
 import milk.example.platform.client.service.Service;
+import milk.example.platform.client.service.subservice.Subservice;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,14 +24,21 @@ public class ServiceDetailConductor extends Conductor{
         this.activity = activity;
     }
 
-    public void serviceDetail(Long id){
-        retrofit.serviceDetail(new ServiceDetailRequestBody(id)).enqueue(new Callback<ServiceDetailResponseBody>() {
+    public interface Callback {
+        void execute(List<Service> serviceDetail);
+    }
+
+    public void serviceDetail(Long id, Callback callback){
+        retrofit.serviceDetail(new ServiceDetailRequestBody(id)).enqueue(new retrofit2.Callback<>() {
             @Override
             public void onResponse(Call<ServiceDetailResponseBody> call, Response<ServiceDetailResponseBody> response) {
 
                 int result = response.body().getResult();
                 Service service = response.body().getService();
                 String message = response.body().getMessage();
+
+                List<Service> serviceDetail = new ArrayList<Service>();
+                serviceDetail.add(service);
 
                 Long id = service.getId();
                 String name= service.getName();
@@ -42,8 +53,9 @@ public class ServiceDetailConductor extends Conductor{
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    TotalServiceListAdapter adapter = new TotalServiceListAdapter();
-                    adapter.addItem(icoUrl,categoryList,name,lore,city,account);
+                    //TotalServiceListAdapter adapter = new TotalServiceListAdapter();
+                    //adapter.addItem(icoUrl,categoryList,name,lore,city,account);
+                    callback.execute(serviceDetail);
 
                 }
 

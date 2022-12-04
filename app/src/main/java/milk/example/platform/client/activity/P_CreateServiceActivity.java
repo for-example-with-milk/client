@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +23,10 @@ public class P_CreateServiceActivity extends AppCompatActivity {
     private EditText name;
     private EditText lore;
     private Button confirm;
+    private Button select_btn;
+    private TextView tagList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,13 @@ public class P_CreateServiceActivity extends AppCompatActivity {
         name = findViewById(R.id.new_serv_name);
         lore = findViewById(R.id.new_serv_lore);
         confirm = findViewById(R.id.create_service);
+        select_btn = findViewById(R.id.tag_button);
+        tagList = findViewById(R.id.tagList);
+
+
+
+
+
 
         back.setOnClickListener(view -> finish());
         home.setOnClickListener(view -> {
