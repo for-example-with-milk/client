@@ -4,86 +4,92 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:padding="10dp"
-    android:background="#DDDDDD"
     android:orientation="vertical">
     <LinearLayout
+        android:background="#DDDDDD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
-        <TextView
-            android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="물품 이름"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-        <TextView
-            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="물품 이름"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/prod_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"
+                android:minHeight="40dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="*"
-            android:textColor="@color/red"
-            android:textSize="20dp" />
-        <EditText
-            android:id="@+id/prod_name"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="물품 설명"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/prod_lore"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"
+                android:minHeight="40dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/edittext_rounded_corner_rectangle"
-            android:minHeight="40dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="물품 설명"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="*"
-            android:textColor="@color/red"
-            android:textSize="20dp" />
-        <EditText
-            android:id="@+id/prod_lore"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/edittext_rounded_corner_rectangle"
-            android:minHeight="40dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="물품 가격"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="*"
-            android:textColor="@color/red"
-            android:textSize="20dp" />
-        <EditText
-            android:id="@+id/prod_price"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/edittext_rounded_corner_rectangle"
-            android:minHeight="40dp" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="물품 가격"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/prod_price"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/edittext_rounded_corner_rectangle"
+                android:minHeight="40dp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
