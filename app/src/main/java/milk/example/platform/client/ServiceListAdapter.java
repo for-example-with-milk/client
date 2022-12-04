@@ -45,7 +45,7 @@ public class ServiceListAdapter extends BaseAdapter {
     public View getView(int i, View mView, ViewGroup viewGroup) {
         View view = mLayoutInflater.inflate(R.layout.service_list_item,null);
 
-        ImageView icon = (ImageView)view.findViewById(R.id.imageView2);
+        //ImageView icon = (ImageView)view.findViewById(R.id.imageView2);
         TextView tag = (TextView)view.findViewById(R.id.categories);
         TextView name = (TextView)view.findViewById(R.id.serve_name);
 
