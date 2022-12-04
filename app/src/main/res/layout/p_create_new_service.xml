@@ -90,6 +90,7 @@
                 android:layout_marginStart="20dp"
                 android:minWidth="200dp"
                 android:minHeight="40dp"
+                android:id="@+id/new_serv_name"
                 android:background="@drawable/edittext_rounded_corner_rectangle"/>
 
         </LinearLayout>
@@ -371,6 +372,7 @@
                 android:layout_marginStart="10dp"
                 android:minWidth="215dp"
                 android:minHeight="200dp"
+                android:id="@+id/new_serv_lore"
                 android:background="@drawable/edittext_rounded_corner_rectangle"/>
 
 
@@ -382,6 +384,7 @@
             android:layout_margin="20dp"
             android:layout_weight="1"
             android:layout_gravity="right"
+            android:id="@+id/create_service"
             android:text="서비스 생성" />
 
     </LinearLayout>
