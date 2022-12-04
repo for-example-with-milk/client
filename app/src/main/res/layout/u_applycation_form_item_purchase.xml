@@ -50,18 +50,21 @@
                android:layout_width="15dp"
                android:layout_height="20dp"
                android:layout_gravity="center"
-               android:src="@drawable/minus" />
+               android:src="@drawable/minus"
+               android:id="@+id/item_minus"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:textSize="25dp"
                android:paddingHorizontal="20dp"
+               android:id="@+id/amount"
                android:text="5"/>
            <ImageView
                android:layout_width="15dp"
                android:layout_height="20dp"
                android:layout_gravity="center"
-               android:src="@drawable/plus_small" />
+               android:src="@drawable/plus_small"
+               android:id="@+id/item_plus"/>
        </LinearLayout>
    </LinearLayout>
 </LinearLayout>
