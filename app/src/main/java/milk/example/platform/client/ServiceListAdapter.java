@@ -26,7 +26,6 @@ public class ServiceListAdapter extends BaseAdapter {
         mLayoutInflater = LayoutInflater.from(mContext);
     }
 
-
     @Override
     public int getCount() {
         return service.size();
