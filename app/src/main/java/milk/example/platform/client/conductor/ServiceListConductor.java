@@ -2,6 +2,7 @@ package milk.example.platform.client.conductor;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
@@ -62,6 +63,8 @@ public class ServiceListConductor extends Conductor {
 
             @Override
             public void onResponse(Call<UserServiceListReponseBody> call, Response<UserServiceListReponseBody> response) {
+                Log.i("밀크", response.code() + "");
+
                 int result = response.body().getResult();
                 List<Service> provserviceList = response.body().getServiceList();
                 String message = response.body().getMessage();

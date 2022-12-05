@@ -70,6 +70,14 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                 showDialog();
             }
         });
+        back.setOnClickListener(view -> finish());
+        home.setOnClickListener(view -> {
+            Intent serviceIntent = new Intent(P_CreateServiceActivity.this, UserMainActivity.class);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(serviceIntent);
+            finish();
+        });
     }
     public void showDialog(){
         selectedCat = new ArrayList<>();
@@ -87,26 +95,18 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             }
         });
 
-        builder.setPositiveButton("선택", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String final_selection = "";
+        builder.setPositiveButton("선택", (dialogInterface, i) -> {
+            String final_selection = "";
 
-                for (String item : selectedCat) {
-                    final_selection = final_selection + "#" + item;
-                }
-                cat_view.setText(final_selection);
-                strend = selectedCat.toString().length();
-
+            for (String item : selectedCat) {
+                final_selection = final_selection + "#" + item;
             }
+            cat_view.setText(final_selection);
+            strend = selectedCat.toString().length();
+
         });
 
-        builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
+        builder.setNegativeButton("취소", (dialogInterface, i) -> dialogInterface.cancel());
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

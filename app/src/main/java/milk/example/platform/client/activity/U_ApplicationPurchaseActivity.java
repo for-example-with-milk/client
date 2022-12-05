@@ -2,6 +2,7 @@ package milk.example.platform.client.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -53,9 +54,9 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
         list_view.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        //for (FormElement e : conductor.getForm().getFormElementList()) {
-
-        //}
+        for (FormElement element : conductor.getForm().getFormElementList()) {
+            datas.add(new PData(element.getProdName(), element.getProdDescription(), element.getProdPrice()));
+        }
 
         back.setOnClickListener(view -> finish());
         home.setOnClickListener(view -> {
@@ -96,14 +97,14 @@ class PAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View converView, ViewGroup parent) {
-        View view = mLayoutInflater.inflate(R.layout.new_product_element, null);
+        View view = mLayoutInflater.inflate(R.layout.u_applycation_form_item_purchase, null);
 
         TextView name = view.findViewById(R.id.item_name);
         TextView lore = view.findViewById(R.id.item_lore);
         TextView price = view.findViewById(R.id.item_price);
         TextView amount = view.findViewById(R.id.amount);
-        ImageButton minus = view.findViewById(R.id.item_minus);
-        ImageButton plus = view.findViewById(R.id.item_plus);
+        ImageView minus = view.findViewById(R.id.item_minus);
+        ImageView plus = view.findViewById(R.id.item_plus);
 
         name.setText(sample.get(position).getName());
         lore.setText(sample.get(position).getLore());

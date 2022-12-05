@@ -43,6 +43,10 @@ public class ApplicationProductWriterConductor extends Conductor {
         writer.setAppliment(new ApplicationProductWriter.Data.Appliment(subServiceName, time));
     }
 
+    public Form getForm() {
+        return form;
+    }
+
     public void summit() {
         setAppliment(new Date());
         writer.setSubServiceId(subServiceId);
