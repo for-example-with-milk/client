@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import milk.example.platform.client.R;
+import milk.example.platform.client.builder.ApplicationProductWriter;
 import milk.example.platform.client.conductor.ApplicationProductWriterConductor;
 import milk.example.platform.client.conductor.Conductor;
 import milk.example.platform.client.service.subservice.FormElement;
@@ -32,6 +34,7 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
     private ImageView home;
     private TextView total_price;
     private ListView list_view;
+    private Button commit;
 
     private PAdapter adapter;
     private ArrayList<PData> datas = new ArrayList<>();
@@ -46,11 +49,13 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
         setContentView(R.layout.u_application_purchase);
 
         conductor = (ApplicationProductWriterConductor) Conductor.load();
+        conductor.setActivity(this);
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);
         total_price = findViewById(R.id.total_price);
         list_view = findViewById(R.id.item_list);
+        commit = findViewById(R.id.commit_apply);
 
         adapter = new PAdapter(getApplicationContext(), datas, this);
         list_view.setAdapter(adapter);
@@ -67,6 +72,16 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
             serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(serviceIntent);
             finish();
+        });
+
+        commit.setOnClickListener(view -> {
+            ArrayList<ApplicationProductWriter.Data.AppliedElement> appliedElements = new ArrayList<>();
+            for (int i = 0; i < datas.size(); i++) {
+                appliedElements.add(new ApplicationProductWriter.Data.AppliedElement(
+                        i, datas.get(i).getName(), datas.get(i).getPrice(), datas.get(i).getAmount()));
+            }
+            conductor.setAppliedElementList(appliedElements);
+            conductor.summit();
         });
     }
 

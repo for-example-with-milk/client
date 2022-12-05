@@ -10,6 +10,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import milk.example.platform.client.R;
@@ -68,7 +70,6 @@ public class U_SubserviceListActivity extends AppCompatActivity {
         conductor = new SubServiceListConductor(getApplicationContext(), this);
 
         detail_conductor.serviceDetail(given_id, serviceDetail -> {
-
             for (Service s :serviceDetail){
                 TotalService ts = new TotalService();
                 ts.setName(s.getName());
@@ -84,8 +85,9 @@ public class U_SubserviceListActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
 
             conductor.subserviceList(given_id, subserviceList -> {
-
                 for (Subservice s : subserviceList){
+                    Collections.sort(s.getForm().getFormElementList());
+
                     TotalService ts = new TotalService();
                     ts.setName(s.getName());
                     ts.setOp(1);
@@ -93,6 +95,7 @@ public class U_SubserviceListActivity extends AppCompatActivity {
                     ts.setS_name(s.getName());
                     ts.setIsRegularPayment(s.getIsRegularPayment());
                     ts.setS_lore(s.getLore());
+                    ts.setS_id(s.getId());
                     totals.add(ts);
                 }
                 adapter.notifyDataSetChanged();

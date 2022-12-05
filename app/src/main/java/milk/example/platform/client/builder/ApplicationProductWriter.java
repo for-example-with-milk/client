@@ -1,5 +1,8 @@
 package milk.example.platform.client.builder;
 
+import android.util.Log;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -11,9 +14,9 @@ public class ApplicationProductWriter {
         @Getter
         public static class Appliment {
             private String subServiceName;
-            private Date time;
+            private String time;
 
-            public Appliment(String subServiceName, Date time) {
+            public Appliment(String subServiceName, String time) {
                 this.subServiceName = subServiceName;
                 this.time = time;
             }

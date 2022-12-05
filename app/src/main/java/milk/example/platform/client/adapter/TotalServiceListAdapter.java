@@ -28,7 +28,6 @@ public class TotalServiceListAdapter extends BaseAdapter {
     private List<TotalService> totalServiceList;
     private Context mContext = null;
     private LayoutInflater mLayoutInflater = null;
-    private long subid;
     private String subname;
 
     public TotalServiceListAdapter(Context context, List<TotalService> data){
@@ -85,7 +84,6 @@ public class TotalServiceListAdapter extends BaseAdapter {
                     explain.setText(listviewItem.getLore());
                     area.setText(listviewItem.getCity());
 
-                    subid = listviewItem.getId();
                     subname = listviewItem.getName();
 
                     break;
@@ -105,7 +103,7 @@ public class TotalServiceListAdapter extends BaseAdapter {
 
                     Button button = view.findViewById(R.id.button8);
                     button.setOnClickListener(v -> {
-                        ApplicationProductWriterConductor conductor = new ApplicationProductWriterConductor(mContext, subid, subname, listviewItem.getForm());
+                        ApplicationProductWriterConductor conductor = new ApplicationProductWriterConductor(mContext, listviewItem.getS_id(), subname, listviewItem.getForm());
                         Conductor.save(conductor);
 
                         Intent intent = new Intent(mContext, U_ApplicationPurchaseActivity.class);

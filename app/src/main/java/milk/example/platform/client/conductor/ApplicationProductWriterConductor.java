@@ -2,24 +2,32 @@ package milk.example.platform.client.conductor;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
 
+import milk.example.platform.client.LoginAccount;
 import milk.example.platform.client.builder.ApplicationProductWriter;
 import milk.example.platform.client.builder.SubserviceProductDataBuilder;
+import milk.example.platform.client.packet.requestBody.ApplimentProductRequestBody;
+import milk.example.platform.client.packet.responseBody.ApplimentResponseBody;
 import milk.example.platform.client.service.subservice.Form;
 import milk.example.platform.client.service.subservice.FormElement;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ApplicationProductWriterConductor extends Conductor {
     private long subServiceId;
     private String subServiceName;
     private Activity activity;
-    private ArrayList<ApplicationProductWriter.Data.AppliedElement> appliedElementList;
     private Form form;
 
     private ApplicationProductWriter writer = new ApplicationProductWriter();
@@ -39,7 +47,7 @@ public class ApplicationProductWriterConductor extends Conductor {
         writer.setAppliedElementList(appliedElementList);
     }
 
-    public void setAppliment(Date time) {
+    void setAppliment(String time) {
         writer.setAppliment(new ApplicationProductWriter.Data.Appliment(subServiceName, time));
     }
 
@@ -48,13 +56,38 @@ public class ApplicationProductWriterConductor extends Conductor {
     }
 
     public void summit() {
-        setAppliment(new Date());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setAppliment(LocalDateTime.now().toString());
+        }
         writer.setSubServiceId(subServiceId);
-        writer.setAppliedElementList(appliedElementList);
         ApplicationProductWriter.Out out = writer.build();
 
+
         if (out.getResult() == 0) {
-            Log.i("밀크", new Gson().toJson(out.getData()));
+            ApplicationProductWriter.Data data = out.getData();
+            ApplimentProductRequestBody request = new ApplimentProductRequestBody(LoginAccount.getInstance().getId(), data.getSubServiceId(), data.getAppliment(), data.getAppliedElementList());
+
+            Log.i("밀크", new Gson().toJson(request));
+
+            retrofit.apply(request).enqueue(new Callback<>() {
+                @Override
+                public void onResponse(Call<ApplimentResponseBody> call, Response<ApplimentResponseBody> response) {
+                    Log.i("밀크", response.code() + "");
+
+                    int result = response.body().getResult();
+                    String message = response.body().getMessage();
+
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    if (result == 0) {
+                        activity.finish();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ApplimentResponseBody> call, Throwable t) {
+                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         else {
             switch (out.getResult()) {
