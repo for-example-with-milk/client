@@ -65,49 +65,34 @@ public class TotalServiceListAdapter extends BaseAdapter {
             switch(viewType){
                 case SURVICE:
                     view = inflater.inflate(R.layout.service_detail,viewGroup,false);
-                    //서비스 정보를 하위서비스 클래스에 대애애충 담아와서 보여주기만 할랬는데 어트리뷰트 모자람...
+
                     ImageView icon = (ImageView)view.findViewById(R.id.imageView3);
                     TextView tag = (TextView)view.findViewById(R.id.category);
                     TextView name = (TextView)view.findViewById(R.id.service_name);
                     TextView explain = (TextView)view.findViewById(R.id.service_explain);
                     TextView area = (TextView)view.findViewById(R.id.service_area);
-                    TextView account = (TextView)view.findViewById(R.id.service_account);
-
 
                     tag.setText(listviewItem.getCategoryList());
                     name.setText(listviewItem.getName());
                     explain.setText(listviewItem.getLore());
                     area.setText(listviewItem.getCity());
-                    account.setText(listviewItem.getAccount());
                     break;
-
 
                 case SUB:
                     view = inflater.inflate(R.layout.u_subservice_item,viewGroup,false);
 
-                    TextView s_name = (TextView)view.findViewById(R.id.name);
-                    TextView price = (TextView)view.findViewById(R.id.price);
-                    TextView pay_period = (TextView)view.findViewById(R.id.pay_period);
-                    TextView s_explain = (TextView)view.findViewById(R.id.explain);
-                    TextView type = (TextView)view.findViewById(R.id.serv_type);
-                    Button apply_btn = (Button)view.findViewById(R.id.button8);
-                    apply_btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //Toast.makeText(mContext, "신청버튼 클릭",Toast.LENGTH_SHORT).show();
+                    TextView sname = view.findViewById(R.id.name);
+                    TextView slore = view.findViewById(R.id.explain);
+                    TextView speriod = view.findViewById(R.id.pay_period);
 
-                        }
-                    });
+                    sname.setText(listviewItem.getS_name());
+                    slore.setText(listviewItem.getS_lore());
+                    if (listviewItem.getIsRegularPayment() == 1)
+                        speriod.setText("정기");
+                    else
+                        speriod.setText("일회");
 
-
-                    s_name.setText(listviewItem.getS_name());
-                    price.setText(listviewItem.getForm().getServicePrice());
-                    pay_period.setText(listviewItem.getIsRegularPayment());
-                    s_explain.setText(listviewItem.getS_lore());
-                    type.setText(listviewItem.getForm().getIsPurchase());
-                    
                     break;
-
             }
             
         }
@@ -126,6 +111,7 @@ public class TotalServiceListAdapter extends BaseAdapter {
 
         totalServiceList.add(item);
     }
+
     public void addItem(short type, String name,int price, short pay_period,String explain){
         TotalService item = new TotalService();
         item.setOp(SUB);

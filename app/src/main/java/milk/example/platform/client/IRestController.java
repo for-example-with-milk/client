@@ -16,10 +16,7 @@ public interface IRestController {
     @POST("/serv/getlist")
     Call<ServiceListResponseBody> serviceList(@Body ServiceListRequestBody request);
 
-    @POST("/ser/detail")
-    Call<SubServiceResponseBody> totalserviceList(@Body SubServiceRequestBody request);
-
-    @POST("/ser/detail")
+    @POST("/serv/getSubServiceList")
     Call<SubServiceResponseBody> subserviceList(@Body SubServiceRequestBody request);
 
     @POST("serv/get")

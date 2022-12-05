@@ -2,6 +2,7 @@ package milk.example.platform.client.conductor;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
@@ -15,7 +16,6 @@ import retrofit2.Response;
 public class SubServiceListConductor extends Conductor{
     private Activity activity;
     private SubServiceListConductor subServiceListConductor;
-
 
     public SubServiceListConductor(Context context, Activity activity) {
         super(context);
@@ -32,12 +32,12 @@ public class SubServiceListConductor extends Conductor{
             public void onResponse(Call<SubServiceResponseBody> call, Response<SubServiceResponseBody> response) {
                 int result = response.body().getResult();
                 String message = response.body().getMessage();
-                List<Subservice> subserviceList  = response.body().getSubserviceList();
+                List<Subservice> subserviceList  = response.body().getSubServiceList();
 
-                if(result!=0){
+                if (result != 0){
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
-                else{
+                else {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                     callback.execute(subserviceList);
                 }

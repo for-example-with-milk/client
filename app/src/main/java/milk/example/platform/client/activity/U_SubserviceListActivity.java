@@ -26,7 +26,8 @@ public class U_SubserviceListActivity extends AppCompatActivity {
     private ImageView back;
     private ImageView home;
     private Long given_id;
-    List<TotalService> totals = new ArrayList<>();
+    private List<TotalService> totals = new ArrayList<>();
+    private TotalServiceListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +61,15 @@ public class U_SubserviceListActivity extends AppCompatActivity {
             }
         });
 
-
+        adapter = new TotalServiceListAdapter(getApplicationContext(),totals);
+        listview.setAdapter(adapter);
 
         detail_conductor = new ServiceDetailConductor(getApplicationContext(),this);
+        conductor = new SubServiceListConductor(getApplicationContext(), this);
+
         detail_conductor.serviceDetail(given_id, serviceDetail -> {
 
-            for(Service s :serviceDetail){
+            for (Service s :serviceDetail){
                 TotalService ts = new TotalService();
                 ts.setName(s.getName());
                 ts.setIcoUrl((s.getIcoUrl()));
@@ -76,28 +80,22 @@ public class U_SubserviceListActivity extends AppCompatActivity {
                 ts.setAccount(s.getAccount());
                 totals.add(ts);
             }
+            adapter.notifyDataSetChanged();
 
+            conductor.subserviceList(given_id, subserviceList -> {
+
+                for (Subservice s : subserviceList){
+                    TotalService ts = new TotalService();
+                    ts.setName(s.getName());
+                    ts.setOp(1);
+                    ts.setForm(s.getForm());
+                    ts.setS_name(s.getName());
+                    ts.setIsRegularPayment(s.getIsRegularPayment());
+                    ts.setS_lore(s.getLore());
+                    totals.add(ts);
+                }
+                adapter.notifyDataSetChanged();
+            });
         });
-
-
-        conductor = new SubServiceListConductor(getApplicationContext(), this);
-        conductor.subserviceList(given_id, subserviceList ->{
-
-            for (Subservice s : subserviceList){
-                TotalService ts = new TotalService();
-                ts.setName(s.getName());
-                ts.setOp(1);
-                ts.getForm().setIsPurchase(s.getForm().getIsPurchase());
-                ts.setS_name(s.getName());
-                ts.setIsRegularPayment(s.getIsRegularPayment());
-                ts.setS_lore(s.getLore());
-
-                totals.add(ts);
-            }
-        });
-
-        TotalServiceListAdapter adapter = new TotalServiceListAdapter(getApplicationContext(),totals);
-        listview.setAdapter(adapter);
-
     }
 }

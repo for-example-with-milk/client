@@ -12,6 +12,6 @@ public class SubServiceResponseBody {
     private int op;
 
     private int result;
-    private List<Subservice> subserviceList;
+    private List<Subservice> subServiceList;
     private String message;
 }

@@ -1,40 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/stroke">
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/button_design"
-        android:text="신청"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explain" />
-
-    <TextView
-        android:id="@+id/explain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/period_info"
-        app:layout_constraintVertical_bias="0.0" />
+    android:background="@drawable/stroke"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/serv_type"
@@ -43,9 +14,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="구매"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/name"
@@ -55,57 +24,20 @@
         android:layout_marginTop="5dp"
         android:text="우유 구매"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serv_type" />
+        android:textSize="20dp" />
 
-    <LinearLayout
-        android:id="@+id/price_info"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="가격"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5,000"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="원"
-            android:textSize="15dp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/period_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price_info">
+        tools:layout_editor_absoluteY="80dp">
 
         <TextView
             android:id="@+id/textView6"
@@ -125,4 +57,26 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/explain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유를 예로 들면 우유"
+        android:textSize="15dp"/>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_design"
+        android:layout_gravity="right"
+        android:text="신청"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+</LinearLayout>
