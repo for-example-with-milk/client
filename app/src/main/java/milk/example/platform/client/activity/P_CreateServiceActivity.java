@@ -96,6 +96,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         final_selection = final_selection + "#" + item;
                     }
                     cat_view.setText(final_selection);
+                    strend = selectedCat.toString().length();
 
             }
         });
@@ -141,7 +142,6 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
                             city = ch_city1 + " " + ch_city2;
-                            strend = city.length();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
@@ -157,7 +157,6 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
                             city = ch_city1 + " " + ch_city2;
-                            strend = city.length();
                         }
 
                         @Override
@@ -180,7 +179,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             conductor.setName(name.getText().toString());
             conductor.setLore(lore.getText().toString());
             conductor.setCity(city);
-            conductor.setCategoryList(selectedCat.toString());
+            conductor.setCategoryList((selectedCat.toString()).substring(1,strend-1));
             conductor.setBaccount(baccount.getText().toString());
             conductor.summit();
         });
