@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 import milk.example.platform.client.builder.ApplicationProductWriter;
@@ -19,7 +19,7 @@ public class ApplicationProductWriterConductor extends Conductor {
     private long subServiceId;
     private String subServiceName;
     private Activity activity;
-    private ArrayList<FormElement> appliedElementList;
+    private ArrayList<ApplicationProductWriter.Data.AppliedElement> appliedElementList;
     private Form form;
 
     private ApplicationProductWriter writer = new ApplicationProductWriter();
@@ -44,7 +44,11 @@ public class ApplicationProductWriterConductor extends Conductor {
     }
 
     public void summit() {
+        setAppliment(new Date());
+        writer.setSubServiceId(subServiceId);
+        writer.setAppliedElementList(appliedElementList);
         ApplicationProductWriter.Out out = writer.build();
+
         if (out.getResult() == 0) {
             Log.i("밀크", new Gson().toJson(out.getData()));
         }

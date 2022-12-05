@@ -24,6 +24,7 @@ import lombok.Setter;
 import milk.example.platform.client.R;
 import milk.example.platform.client.conductor.ApplicationProductWriterConductor;
 import milk.example.platform.client.conductor.Conductor;
+import milk.example.platform.client.service.subservice.FormElement;
 
 public class U_ApplicationPurchaseActivity extends AppCompatActivity {
     private ImageView back;
@@ -51,6 +52,10 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
         adapter = new PAdapter(getApplicationContext(), datas);
         list_view.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        for (FormElement e : conductor.getForm().getFormElementList()) {
+
+        }
 
         back.setOnClickListener(view -> finish());
         home.setOnClickListener(view -> {

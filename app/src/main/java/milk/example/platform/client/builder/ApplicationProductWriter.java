@@ -1,10 +1,9 @@
 package milk.example.platform.client.builder;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 import lombok.Getter;
-import milk.example.platform.client.LoginAccount;
 
 public class ApplicationProductWriter {
     @Getter
