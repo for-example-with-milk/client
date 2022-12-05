@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import milk.example.platform.client.R;
-import milk.example.platform.client.TotalService;
-import milk.example.platform.client.TotalServiceListAdapter;
+import milk.example.platform.client.service.TotalService;
+import milk.example.platform.client.adapter.TotalServiceListAdapter;
 import milk.example.platform.client.conductor.SubServiceListConductor;
 import milk.example.platform.client.conductor.ServiceDetailConductor;
 import milk.example.platform.client.service.Service;

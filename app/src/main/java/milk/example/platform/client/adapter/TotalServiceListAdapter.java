@@ -1,4 +1,4 @@
-package milk.example.platform.client;
+package milk.example.platform.client.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,12 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
-import milk.example.platform.client.activity.U_SubserviceListActivity;
-import milk.example.platform.client.service.subservice.Subservice;
+import milk.example.platform.client.R;
+import milk.example.platform.client.service.TotalService;
 
 public class TotalServiceListAdapter extends BaseAdapter {
     private static final int SURVICE = 0;

@@ -6,24 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import milk.example.platform.client.R;
-import milk.example.platform.client.ServiceListAdapter;
-import milk.example.platform.client.conductor.AccountConductor;
-import milk.example.platform.client.conductor.Conductor;
-import milk.example.platform.client.conductor.EmptyConductor;
+import milk.example.platform.client.adapter.ServiceListAdapter;
 import milk.example.platform.client.conductor.ServiceListConductor;
 import milk.example.platform.client.service.Service;
-import milk.example.platform.client.service.subservice.Subservice;
 
 public class U_View_ServiceListActivity extends AppCompatActivity {
     private ServiceListConductor conductor;

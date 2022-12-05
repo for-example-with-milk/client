@@ -1,4 +1,4 @@
-package milk.example.platform.client;
+package milk.example.platform.client.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import milk.example.platform.client.R;
 import milk.example.platform.client.service.Service;
 
 public class ServiceListAdapter extends BaseAdapter {

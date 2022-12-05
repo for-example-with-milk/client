@@ -7,13 +7,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
 import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
 import milk.example.platform.client.service.Service;
-import milk.example.platform.client.service.subservice.Subservice;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ServiceDetailConductor extends Conductor{

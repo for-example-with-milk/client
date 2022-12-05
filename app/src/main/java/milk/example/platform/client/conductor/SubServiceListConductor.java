@@ -2,23 +2,14 @@ package milk.example.platform.client.conductor;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import milk.example.platform.client.TotalService;
-import milk.example.platform.client.TotalServiceListAdapter;
-import milk.example.platform.client.packet.requestBody.ServiceDetailRequestBody;
-import milk.example.platform.client.packet.requestBody.ServiceListRequestBody;
 import milk.example.platform.client.packet.requestBody.SubServiceRequestBody;
-import milk.example.platform.client.packet.responseBody.ServiceDetailResponseBody;
 import milk.example.platform.client.packet.responseBody.SubServiceResponseBody;
-import milk.example.platform.client.service.Service;
 import milk.example.platform.client.service.subservice.Subservice;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SubServiceListConductor extends Conductor{

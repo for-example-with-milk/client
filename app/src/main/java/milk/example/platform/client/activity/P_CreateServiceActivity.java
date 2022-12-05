@@ -35,9 +35,10 @@ public class P_CreateServiceActivity extends AppCompatActivity {
     private EditText lore;
     private EditText baccount;
     private String city;
+    private int strend;
     private Button b_category;
     private TextView cat_view;
-    List<String> selecedCat;
+    List<String> selectedCat;
     AlertDialog.Builder builder;
 
     ArrayAdapter<CharSequence> adspin1,adspin2;
@@ -62,6 +63,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
         b_category = findViewById(R.id.new_serv_cat);
         cat_view = findViewById(R.id.new_serv_catresult);
 
+        //카테고리 선택 팝업창
         b_category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +72,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
         });
     }
     public void showDialog(){
-        selecedCat = new ArrayList<>();
+        selectedCat = new ArrayList<>();
         builder = new AlertDialog.Builder(P_CreateServiceActivity.this);
         builder.setMultiChoiceItems(R.array.check_cat, null, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
@@ -78,9 +80,9 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                 String[] items = getResources().getStringArray(R.array.check_cat);
 
                 if(b) {
-                    selecedCat.add(items[i]);
-                }else if(selecedCat.contains(items[i])){
-                    selecedCat.remove(items[i]);
+                    selectedCat.add(items[i]);
+                }else if(selectedCat.contains(items[i])){
+                    selectedCat.remove(items[i]);
                 }
             }
         });
@@ -90,10 +92,11 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String final_selection = "";
 
-                for (String item : selecedCat) {
-                    final_selection = final_selection + "/" + item;
+                for (String item : selectedCat) {
+                    final_selection = final_selection + "#" + item;
                 }
                 cat_view.setText(final_selection);
+                strend = selectedCat.toString().length();
 
             }
         });
@@ -119,17 +122,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             finish();
         });
 
-        //서비스 생성 버튼
-        confirm.setOnClickListener(view -> {
-            conductor.setName(name.getText().toString());
-            conductor.setLore(lore.getText().toString());
-            //conductor.setCity(city.getText().toString());
-            //conductor.setCity(categoryList.getText().toString());
-            //conductor.setCity(account.getText().toString());
-            conductor.summit();
-        });
-
-        //spinner
+        //도시선택 spinner
         final Spinner spinner1 = (Spinner)findViewById(R.id.city1);
         final Spinner spinner2 = (Spinner)findViewById(R.id.city2);
 
@@ -148,7 +141,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
-                            city = ch_city1.concat(ch_city2);
+                            city = ch_city1 + " " + ch_city2;
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
@@ -163,7 +156,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
-                            city = ch_city1.concat(ch_city2);
+                            city = ch_city1 + " " + ch_city2;
                         }
 
                         @Override
@@ -186,7 +179,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             conductor.setName(name.getText().toString());
             conductor.setLore(lore.getText().toString());
             conductor.setCity(city);
-            conductor.setCategoryList(selecedCat.toString());
+            conductor.setCategoryList((selectedCat.toString()).substring(1,strend-1));
             conductor.setBaccount(baccount.getText().toString());
             conductor.summit();
         });

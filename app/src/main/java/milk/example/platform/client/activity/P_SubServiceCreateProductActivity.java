@@ -23,6 +23,7 @@ import lombok.Getter;
 import lombok.Setter;
 import milk.example.platform.client.R;
 import milk.example.platform.client.builder.SubserviceProductDataBuilder;
+import milk.example.platform.client.conductor.Conductor;
 import milk.example.platform.client.conductor.SubserviceBuilderProductConductor;
 
 public class P_SubServiceCreateProductActivity extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class P_SubServiceCreateProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p_create_new_product);
 
-        conductor = new SubserviceBuilderProductConductor(getApplicationContext());
+        conductor = (SubserviceBuilderProductConductor) Conductor.load();
         conductor.setActivity(this);
 
         name = findViewById(R.id.sub_name);

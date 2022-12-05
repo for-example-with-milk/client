@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -12,8 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import milk.example.platform.client.LoginAccount;
 import milk.example.platform.client.R;
-import milk.example.platform.client.ServiceListAdapter;
-import milk.example.platform.client.conductor.ServiceListConductor;
+import milk.example.platform.client.adapter.ServiceListAdapter;
 import milk.example.platform.client.conductor.UserServiceListConductor;
 import milk.example.platform.client.service.Service;
 

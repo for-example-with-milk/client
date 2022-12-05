@@ -19,9 +19,11 @@ import retrofit2.Response;
 public class SubserviceBuilderProductConductor extends Conductor {
     private SubserviceProductDataBuilder builder = new SubserviceProductDataBuilder();
     private Activity activity;
+    private int id;
 
-    public SubserviceBuilderProductConductor(Context context) {
+    public SubserviceBuilderProductConductor(Context context, int id) {
         super(context);
+        this.id = id;
     }
 
     public void setActivity(Activity activity) {
@@ -44,10 +46,7 @@ public class SubserviceBuilderProductConductor extends Conductor {
         SubserviceProductDataBuilder.Out out = builder.build();
         if (out.getResult() == 0) { // ID 넣어야 함
 
-            String gson = new Gson().toJson(new CreateSubServiceProductRequestBody(out.getData(), 1));
-            Log.i("밀크", gson);
-
-            retrofit.createSubserviceProduct(new CreateSubServiceProductRequestBody(out.getData(), 1)).enqueue(new Callback<>() {
+            retrofit.createSubserviceProduct(new CreateSubServiceProductRequestBody(out.getData(), id)).enqueue(new Callback<>() {
                 @Override
                 public void onResponse(Call<CreateSubServiceProductResponseBody> call, Response<CreateSubServiceProductResponseBody> response) {
                     Log.i("밀크", response.body().toString());
@@ -69,7 +68,7 @@ public class SubserviceBuilderProductConductor extends Conductor {
         else {
             switch (out.getResult()) {
                 case 1:
-                    Toast.makeText(context, "목록이 하나도 없음", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "목록이 하나도 없습니다.", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

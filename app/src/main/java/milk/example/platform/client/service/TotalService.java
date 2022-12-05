@@ -1,4 +1,4 @@
-package milk.example.platform.client;
+package milk.example.platform.client.service;
 
 import java.util.List;
 
