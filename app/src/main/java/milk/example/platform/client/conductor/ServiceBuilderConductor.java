@@ -38,7 +38,6 @@ public class ServiceBuilderConductor extends Conductor {
 
     public void setCategoryList(String categoryList) { builder.setCategoryList(categoryList);}
 
-
     public void summit() {
         ServiceDataBuilder.Out out = builder.build();
         if (out.getResult() == 0) {
@@ -47,8 +46,8 @@ public class ServiceBuilderConductor extends Conductor {
                 public void onResponse(Call<CreateServiceResponseBody> call, Response<CreateServiceResponseBody> response) {
                     int result = response.body().getResult();
                     String message = response.body().getMessage();
-
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+
                     if (result == 0) {
                         activity.finish();
                     }
