@@ -71,6 +71,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             }
         });
     }
+<<<<<<< HEAD
     public void showDialog(){
         selectedCat = new ArrayList<>();
         builder = new AlertDialog.Builder(P_CreateServiceActivity.this);
@@ -83,20 +84,42 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                     selectedCat.add(items[i]);
                 }else if(selectedCat.contains(items[i])){
                     selectedCat.remove(items[i]);
+=======
+        public void showDialog(){
+            selectedCat = new ArrayList<>();
+            builder = new AlertDialog.Builder(P_CreateServiceActivity.this);
+            builder.setMultiChoiceItems(R.array.check_cat, null, new DialogInterface.OnMultiChoiceClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                    String[] items = getResources().getStringArray(R.array.check_cat);
+
+                    if(b) {
+                        selectedCat.add(items[i]);
+                    }else if(selectedCat.contains(items[i])){
+                        selectedCat.remove(items[i]);
+                    }
+>>>>>>> a71c155f19bc425535907fdce24cdd79f25ac0ac
                 }
-            }
-        });
+            });
 
-        builder.setPositiveButton("선택", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String final_selection = "";
+            builder.setPositiveButton("선택", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    String final_selection = "";
 
+<<<<<<< HEAD
                 for (String item : selectedCat) {
                     final_selection = final_selection + "#" + item;
                 }
                 cat_view.setText(final_selection);
                 strend = selectedCat.toString().length();
+=======
+                    for (String item : selectedCat) {
+                        final_selection = final_selection + "#" + item;
+                    }
+                    cat_view.setText(final_selection);
+                    strend = selectedCat.toString().length();
+>>>>>>> a71c155f19bc425535907fdce24cdd79f25ac0ac
 
             }
         });

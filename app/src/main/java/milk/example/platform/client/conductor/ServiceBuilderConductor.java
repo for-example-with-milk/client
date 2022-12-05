@@ -46,8 +46,8 @@ public class ServiceBuilderConductor extends Conductor {
                 public void onResponse(Call<CreateServiceResponseBody> call, Response<CreateServiceResponseBody> response) {
                     int result = response.body().getResult();
                     String message = response.body().getMessage();
-
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+
                     if (result == 0) {
                         activity.finish();
                     }
