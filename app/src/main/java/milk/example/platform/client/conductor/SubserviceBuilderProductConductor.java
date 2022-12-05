@@ -45,10 +45,11 @@ public class SubserviceBuilderProductConductor extends Conductor {
     public void summit() {
         SubserviceProductDataBuilder.Out out = builder.build();
         if (out.getResult() == 0) {
-            retrofit.createSubserviceProduct(new CreateSubServiceProductRequestBody(out.getData(), id)).enqueue(new Callback<>() {
+            CreateSubServiceProductRequestBody request = new CreateSubServiceProductRequestBody(out.getData(), id);
+            retrofit.createSubserviceProduct(request).enqueue(new Callback<>() {
                 @Override
                 public void onResponse(Call<CreateSubServiceProductResponseBody> call, Response<CreateSubServiceProductResponseBody> response) {
-                    Log.i("밀크", response.code() + "");
+                    Log.i("밀크", response.code() + "\n" + new Gson().toJson(request));
 
                     int result = response.body().getResult();
                     String message = response.body().getMessage();

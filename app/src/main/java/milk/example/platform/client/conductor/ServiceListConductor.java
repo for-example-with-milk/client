@@ -37,17 +37,12 @@ public class ServiceListConductor extends Conductor {
                 List<Service> serviceList = response.body().getServiceList();
                 String message = response.body().getMessage();
 
-
-
-
-                if (result != 0){//이거 반대로 바꾸기
+                if (result != 0){
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
-
-                else{
+                else {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                     callback.execute(serviceList);
-
                 }
             }
 
@@ -70,7 +65,7 @@ public class ServiceListConductor extends Conductor {
                 String message = response.body().getMessage();
 
 
-                if(result!=0){
+                if (result!=0){
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
                 else{
