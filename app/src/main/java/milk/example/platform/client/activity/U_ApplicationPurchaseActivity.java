@@ -36,6 +36,8 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
     private PAdapter adapter;
     private ArrayList<PData> datas = new ArrayList<>();
 
+    private int total = 0;
+
     private ApplicationProductWriterConductor conductor;
 
     @Override
@@ -50,7 +52,7 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
         total_price = findViewById(R.id.total_price);
         list_view = findViewById(R.id.item_list);
 
-        adapter = new PAdapter(getApplicationContext(), datas);
+        adapter = new PAdapter(getApplicationContext(), datas, this);
         list_view.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -67,17 +69,24 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
             finish();
         });
     }
+
+    void updateTotal(int money) {
+        total += money;
+        total_price.setText(total + "");
+    }
 }
 
 class PAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater mLayoutInflater;
     ArrayList<PData> sample;
+    U_ApplicationPurchaseActivity activity;
 
-    public PAdapter(Context context, ArrayList<PData> data) {
+    public PAdapter(Context context, ArrayList<PData> data, U_ApplicationPurchaseActivity activity) {
         mContext = context;
         sample = data;
         mLayoutInflater = LayoutInflater.from(mContext);
+        this.activity = activity;
     }
 
     @Override
@@ -112,8 +121,10 @@ class PAdapter extends BaseAdapter {
 
         minus.setOnClickListener(v -> {
             int a = sample.get(position).getAmount();
-            if (a != 0)
+            if (a != 0) {
                 a -= 1;
+                activity.updateTotal(-sample.get(position).getPrice());
+            }
             sample.get(position).setAmount(a);
             amount.setText(a + "");
         });
@@ -121,6 +132,7 @@ class PAdapter extends BaseAdapter {
         plus.setOnClickListener(v -> {
             int a = sample.get(position).getAmount();
             a += 1;
+            activity.updateTotal(sample.get(position).getPrice());
             sample.get(position).setAmount(a);
             amount.setText(a + "");
         });
