@@ -51,7 +51,7 @@ public class ServiceDataBuilder {
         if ((name.length() < 2) || (name.length() > 20))
             return 1;
         //설명
-        else if(categoryList.length() < 1)
+        else if((lore.length() < 1) || (lore.length() > 1024))
             return 2;
         //계좌
         else if(baccount.length() < 1)
@@ -60,7 +60,7 @@ public class ServiceDataBuilder {
         else if(city.length() < 1)
             return 4;
         //카테고리
-        else if((lore.length() < 1) || (lore.length() > 1024))
+        else if(categoryList.length() < 1)
             return 5;
 
         return 0;

@@ -35,6 +35,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
     private EditText lore;
     private EditText baccount;
     private String city;
+    private int strend;
     private Button b_category;
     private TextView cat_view;
     List<String> selectedCat;
@@ -91,7 +92,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                     String final_selection = "";
 
                     for (String item : selectedCat) {
-                        final_selection = final_selection + "/" + item;
+                        final_selection = final_selection + "#" + item;
                     }
                     cat_view.setText(final_selection);
 
@@ -119,17 +120,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
             finish();
         });
 
-        //서비스 생성 버튼
-//        confirm.setOnClickListener(view -> {
-//            conductor.setName(name.getText().toString());
-//            conductor.setLore(lore.getText().toString());
-//            //conductor.setCity(city.getText().toString());
-//            //conductor.setCity(categoryList.getText().toString());
-//            //conductor.setCity(account.getText().toString());
-//            conductor.summit();
-//        });
-
-        //spinner
+        //도시선택 spinner
         final Spinner spinner1 = (Spinner)findViewById(R.id.city1);
         final Spinner spinner2 = (Spinner)findViewById(R.id.city2);
 
@@ -148,7 +139,8 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
-                            city = ch_city1.concat(ch_city2);
+                            city = ch_city1 + " " + ch_city2;
+                            strend = city.length();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
@@ -163,7 +155,8 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             ch_city2 = adspin2.getItem(i).toString();
-                            city = ch_city1.concat(ch_city2);
+                            city = ch_city1 + " " + ch_city2;
+                            strend = city.length();
                         }
 
                         @Override
