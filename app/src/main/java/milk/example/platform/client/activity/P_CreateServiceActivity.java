@@ -52,6 +52,7 @@ public class P_CreateServiceActivity extends AppCompatActivity {
         setContentView(R.layout.p_create_new_service);
 
         conductor = new ServiceBuilderConductor(getApplicationContext());
+        conductor.setActivity(this);
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);

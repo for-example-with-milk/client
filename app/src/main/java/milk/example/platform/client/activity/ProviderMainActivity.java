@@ -26,12 +26,9 @@ public class ProviderMainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_ServiceListActivity.class);
-//                startActivity(serviceIntent);
-                //finish();
-
-                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_SubServiceCreateProductActivity.class);
+                Intent serviceIntent = new Intent(ProviderMainActivity.this,P_ServiceListActivity.class);
                 startActivity(serviceIntent);
+                //finish();
             }
         });
 
