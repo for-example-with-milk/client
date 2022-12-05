@@ -2,16 +2,23 @@ package milk.example.platform.client.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import milk.example.platform.client.R;
+import milk.example.platform.client.TotalService;
 import milk.example.platform.client.TotalServiceListAdapter;
 import milk.example.platform.client.conductor.SubServiceListConductor;
 import milk.example.platform.client.conductor.ServiceDetailConductor;
+import milk.example.platform.client.service.Service;
+import milk.example.platform.client.service.subservice.Subservice;
 
 public class U_SubserviceListActivity extends AppCompatActivity {
     private SubServiceListConductor conductor;
@@ -19,6 +26,7 @@ public class U_SubserviceListActivity extends AppCompatActivity {
     private ImageView back;
     private ImageView home;
     private Long given_id;
+    List<TotalService> totals = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +36,8 @@ public class U_SubserviceListActivity extends AppCompatActivity {
         ListView listview = (ListView)findViewById(R.id.subService_list);
 
         Intent intent = getIntent();
-        given_id=Long.parseLong(intent.getStringExtra("service_info"));
+        given_id = intent.getLongExtra("service_info",0);
+        Log.i("받아온 id",given_id.toString());
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);
@@ -52,15 +61,42 @@ public class U_SubserviceListActivity extends AppCompatActivity {
         });
 
 
+
         detail_conductor = new ServiceDetailConductor(getApplicationContext(),this);
-        detail_conductor.serviceDetail(given_id);
+        detail_conductor.serviceDetail(given_id, serviceDetail -> {
+
+            for(Service s :serviceDetail){
+                TotalService ts = new TotalService();
+                ts.setName(s.getName());
+                ts.setIcoUrl((s.getIcoUrl()));
+                ts.setOp(0);
+                ts.setCategoryList(s.getCategoryList());
+                ts.setLore(s.getLore());
+                ts.setCity(s.getCity());
+                ts.setAccount(s.getAccount());
+                totals.add(ts);
+            }
+
+        });
 
 
         conductor = new SubServiceListConductor(getApplicationContext(), this);
-        conductor.totalserviceList(given_id);
+        conductor.subserviceList(given_id, subserviceList ->{
 
+            for (Subservice s : subserviceList){
+                TotalService ts = new TotalService();
+                ts.setName(s.getName());
+                ts.setOp(1);
+                ts.getForm().setIsPurchase(s.getForm().getIsPurchase());
+                ts.setS_name(s.getName());
+                ts.setIsRegularPayment(s.getIsRegularPayment());
+                ts.setS_lore(s.getLore());
 
-        TotalServiceListAdapter adapter = new TotalServiceListAdapter();
+                totals.add(ts);
+            }
+        });
+
+        TotalServiceListAdapter adapter = new TotalServiceListAdapter(getApplicationContext(),totals);
         listview.setAdapter(adapter);
 
     }

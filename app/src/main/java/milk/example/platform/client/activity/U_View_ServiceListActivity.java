@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -94,6 +95,7 @@ public class U_View_ServiceListActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Intent intent = new Intent(U_View_ServiceListActivity.this, U_SubserviceListActivity.class);
                             Service id = serviceList.get(i);
+                            Log.i("서비스 아이디",id.getId().toString());
                             intent.putExtra("service_info",id.getId());
                             startActivity(intent);
                         }

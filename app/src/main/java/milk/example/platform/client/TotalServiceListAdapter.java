@@ -24,10 +24,6 @@ public class TotalServiceListAdapter extends BaseAdapter {
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
 
-    public TotalServiceListAdapter() {
-
-    }
-
     public TotalServiceListAdapter(Context context, List<TotalService> data){
         mContext = context;
         totalServiceList = data;
@@ -140,7 +136,7 @@ public class TotalServiceListAdapter extends BaseAdapter {
         item.setIsRegularPayment(pay_period);
         item.setS_lore(explain);
 
-
+        totalServiceList.add(item);
 
         //콜백함수가 해주니까 이부분은 통째로 삭제해도 댈듯//
     }

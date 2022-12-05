@@ -95,18 +95,18 @@ public class P_CreateServiceActivity extends AppCompatActivity {
                     }
                     cat_view.setText(final_selection);
 
-                }
-            });
+            }
+        });
 
-            builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.cancel();
-                }
-            });
+        builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
 
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
 
         //nav_bar back&home
