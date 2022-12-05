@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="client"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Client"
@@ -36,7 +36,7 @@
         <activity
             android:name=".activity.P_CreateServiceRequestFormActivity"
             android:exported="true">
-            android:exported="false">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -44,7 +44,7 @@
         <activity
             android:name=".activity.P_SubserviceListActivity"
             android:exported="true">
-            android:exported="false">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -52,7 +52,7 @@
         <activity
             android:name=".activity.P_ServiceListActivity"
             android:exported="true">
-            android:exported="false">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
