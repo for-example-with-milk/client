@@ -53,9 +53,9 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
         list_view.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        for (FormElement e : conductor.getForm().getFormElementList()) {
+        //for (FormElement e : conductor.getForm().getFormElementList()) {
 
-        }
+        //}
 
         back.setOnClickListener(view -> finish());
         home.setOnClickListener(view -> {
