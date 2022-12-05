@@ -1,6 +1,7 @@
 package milk.example.platform.client.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import milk.example.platform.client.R;
+import milk.example.platform.client.activity.U_ApplicationPurchaseActivity;
+import milk.example.platform.client.activity.U_My_ServiceListActivity;
+import milk.example.platform.client.activity.UserMainActivity;
+import milk.example.platform.client.conductor.ApplicationProductWriterConductor;
+import milk.example.platform.client.conductor.Conductor;
 import milk.example.platform.client.service.TotalService;
 
 public class TotalServiceListAdapter extends BaseAdapter {
@@ -19,9 +25,11 @@ public class TotalServiceListAdapter extends BaseAdapter {
     private static final int SUB = 1;
     private static final int OP_SIZE = 2;
 
-    List<TotalService> totalServiceList;
-    Context mContext = null;
-    LayoutInflater mLayoutInflater = null;
+    private List<TotalService> totalServiceList;
+    private Context mContext = null;
+    private LayoutInflater mLayoutInflater = null;
+    private long subid;
+    private String subname;
 
     public TotalServiceListAdapter(Context context, List<TotalService> data){
         mContext = context;
@@ -76,8 +84,11 @@ public class TotalServiceListAdapter extends BaseAdapter {
                     name.setText(listviewItem.getName());
                     explain.setText(listviewItem.getLore());
                     area.setText(listviewItem.getCity());
-                    break;
 
+                    subid = listviewItem.getId();
+                    subname = listviewItem.getName();
+
+                    break;
                 case SUB:
                     view = inflater.inflate(R.layout.u_subservice_item,viewGroup,false);
 
@@ -91,6 +102,16 @@ public class TotalServiceListAdapter extends BaseAdapter {
                         speriod.setText("정기");
                     else
                         speriod.setText("일회");
+
+                    Button button = view.findViewById(R.id.button8);
+                    button.setOnClickListener(v -> {
+                        ApplicationProductWriterConductor conductor = new ApplicationProductWriterConductor(mContext, subid, subname, listviewItem.getForm());
+                        Conductor.save(conductor);
+
+                        Intent intent = new Intent(mContext, U_ApplicationPurchaseActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(intent);
+                    });
 
                     break;
             }

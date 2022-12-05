@@ -61,7 +61,7 @@ public class U_SubserviceListActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new TotalServiceListAdapter(getApplicationContext(),totals);
+        adapter = new TotalServiceListAdapter(getApplicationContext(), totals);
         listview.setAdapter(adapter);
 
         detail_conductor = new ServiceDetailConductor(getApplicationContext(),this);
@@ -78,6 +78,7 @@ public class U_SubserviceListActivity extends AppCompatActivity {
                 ts.setLore(s.getLore());
                 ts.setCity(s.getCity());
                 ts.setAccount(s.getAccount());
+                ts.setId(s.getId());
                 totals.add(ts);
             }
             adapter.notifyDataSetChanged();

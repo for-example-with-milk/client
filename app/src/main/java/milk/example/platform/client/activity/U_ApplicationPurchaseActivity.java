@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import milk.example.platform.client.R;
+import milk.example.platform.client.conductor.ApplicationProductWriterConductor;
+import milk.example.platform.client.conductor.Conductor;
 
 public class U_ApplicationPurchaseActivity extends AppCompatActivity {
     private ImageView back;
@@ -32,10 +34,14 @@ public class U_ApplicationPurchaseActivity extends AppCompatActivity {
     private PAdapter adapter;
     private ArrayList<PData> datas = new ArrayList<>();
 
+    private ApplicationProductWriterConductor conductor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.u_application_purchase);
+
+        conductor = (ApplicationProductWriterConductor) Conductor.load();
 
         back = findViewById(R.id.back);
         home = findViewById(R.id.home);

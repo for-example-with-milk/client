@@ -22,7 +22,6 @@ public class TotalService {
     private String account;
     private List<Subservice> subServiceList;
 
-
     private Long s_id;
     private String s_name;
     private String s_lore;
