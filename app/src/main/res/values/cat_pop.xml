@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cat_list">Dialog</string>
+
+    <string-array name="check_cat">
+        <item>건강</item>
+        <item>안전</item>
+        <item>수리</item>
+        <item>동물</item>
+        <item>식물</item>
+        <item>모임</item>
+        <item>의류</item>
+        <item>음악</item>
+        <item>운동</item>
+        <item>게임</item>
+        <item>책</item>
+        <item>여행</item>
+        <item>공부</item>
+        <item>식품</item>
+    </string-array>
+</resources>

@@ -34,4 +34,6 @@ public interface IRestController {
     @POST("serv/create")
     Call<CreateServiceResponseBody> createService(@Body CreateServiceRequestBody request);
 
+    @POST("subserv/create")
+    Call<CreateSubServiceProductResponseBody> createSubserviceProduct(@Body CreateSubServiceProductRequestBody request);
 }
