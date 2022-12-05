@@ -22,7 +22,6 @@ public class P_ServiceListActivity extends AppCompatActivity {
     private ImageView back;
     private ImageView home;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,24 +32,15 @@ public class P_ServiceListActivity extends AppCompatActivity {
 
         ListView listview = (ListView)findViewById(R.id.service_list);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        back.setOnClickListener(view -> finish());
 
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent serviceIntent = new Intent(P_ServiceListActivity.this, ProviderMainActivity.class);
-                serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(serviceIntent);
-                finish();
-            }
+        home.setOnClickListener(view -> {
+            Intent serviceIntent = new Intent(P_ServiceListActivity.this, ProviderMainActivity.class);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(serviceIntent);
+            finish();
         });
-
 
         conductor = new ServiceListConductor(getApplicationContext(), this);
         conductor.provserviceList(LoginAccount.getInstance().getId(), provserviceList -> {

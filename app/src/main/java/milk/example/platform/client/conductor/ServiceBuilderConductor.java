@@ -38,7 +38,6 @@ public class ServiceBuilderConductor extends Conductor {
 
     public void setCategoryList(String categoryList) { builder.setCategoryList(categoryList);}
 
-
     public void summit() {
         ServiceDataBuilder.Out out = builder.build();
         if (out.getResult() == 0) {

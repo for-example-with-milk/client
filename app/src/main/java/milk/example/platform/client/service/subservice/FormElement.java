@@ -13,9 +13,9 @@ public class FormElement {
     private String prodName;
     private String prodDescription;
     private String infoText;
+    private int prodPrice;
     private InputType inputType;
     private short isRequireResponse;
     private short isMultipleChoice;
     private List<Checkbox> checkboxList;
-
 }
